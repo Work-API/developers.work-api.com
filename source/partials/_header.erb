@@ -24,11 +24,9 @@ twq('track','PageView');
 
 <header class="header" id="site_header">
   <nav class="primary-nav">
-    <a class="primary-nav__link" href="/">Home</a>
-
-    <a class="primary-nav__link" href="/product">API Details</a>
-
-    <a class="primary-nav__link" href="/about">Company</a>
+    <% data.site.primary_nav.each do |nav| %>
+      <a <%= %{target="#{nav.target}"} if nav.target %>class="primary-nav__link" href="<%= nav.path %>"><%= nav.label %></a>
+    <% end %>      
   </nav>
 </header>
 <!-- /header -->

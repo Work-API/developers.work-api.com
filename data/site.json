@@ -16,5 +16,13 @@
   "contact_enterprise": "Get Started &mdash; Contact us Today",
   "mockup_btn": "Access Mockup",
   "mockup_caveat": "No sign-up required",
-  "logos_tagline": "©%year% Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC."
+  "logos_tagline": "©%year% Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.",
+  "primary_nav": [
+    { "path": "/",  "label": "Getting Started" },
+    { "path": "/api/v1/reference", "label": "Reference" },
+    { "path": "/sdks", "label": "SDKs" },
+    { "path": "/samples", "label": "Samples" },
+    { "path": "https://dashboard.work-api.com", "label": "Dashboard", "target": "_blank" },
+    { "path": "https://dashboard.work-api.com/billing", "label": "Account &amp; Billing", "target": "_blank" }
+  ] 
 }
