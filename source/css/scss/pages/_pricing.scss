@@ -1,0 +1,19 @@
+.pricing__options {
+  .row {
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+    &:not(:first-child) {
+      line-height: 3rem;
+
+      .price-block {
+        span {
+          display: inline-block;
+          padding: 0 1rem;
+          border: 1px solid $brand-primary;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

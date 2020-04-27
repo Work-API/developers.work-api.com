@@ -1,0 +1,24 @@
+{
+  "name": "work-api",
+  "version": "1.0.0",
+  "description": "Website for Work-API",
+  "main": "js/scripts.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livilco/workapi-marketing-www.git"
+  },
+  "author": "dan@livil.co",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livilco/workapi-marketing-www/issues"
+  },
+  "homepage": "https://github.com/livilco/workapi-marketing-www#readme",
+  "dependencies": {
+    "bower": "^1.7.7"
+  },
+  "devDependencies": {
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7"
+  }
+}

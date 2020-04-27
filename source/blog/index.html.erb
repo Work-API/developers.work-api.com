@@ -1,0 +1,64 @@
+---
+title: Blog
+pageable: true
+per_page: 10
+---
+
+<section>
+  <div class="container">
+    <div class="row">
+      <h2 class="card__title">Blog</h2>
+      <hr>
+    </div>
+
+<% page_articles.each_with_index do |article, i| %>
+    <div class="row">
+  <% link_to article, :class => 'post-listing' do %>
+      <div class="col-3">
+        <%= image_tag '/blog/' + article.data.thumbnail_image, :class => 'u-width--max-full' %>
+      </div>
+
+      <div class="col-9">
+        <div>
+          <h2 class="alpha"><%= article.title %></h2>
+          <p class="lede"><%= article.data.preview %></p>
+        </div>
+      </div>
+
+      <div class="u-cf"></div>
+  <% end %>
+    </div>
+<% end %>
+
+  </div>
+</section>
+<!-- /post list -->
+
+<% if paginate && num_pages > 1 %>
+<section class="paginate">
+  <div class="container">
+    
+    <div class="four columns">
+      <p>
+      <% if prev_page %>
+      <%= link_to 'Previous page', prev_page, :class => 'inline-link' %>
+      <% end %>
+      </p>
+    </div>
+    
+    <div class="four columns u-text-center">
+      <p>Page <%= page_number %> of <%= num_pages %></p>
+    </div>
+    
+    <div class="four columns u-text-right">
+      <p>
+      <% if next_page %>
+        <%= link_to 'Next page', next_page, :class => 'inline-link' %>
+      <% end %>
+      </p>
+    </div>
+    
+  </div>
+</section>
+<!-- /pagination -->
+<% end %>

@@ -1,0 +1,31 @@
+.post__hero,
+.hero--blog {
+  background-image: url('/media/img/bg-blog.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.article__title {
+  display: inline-block;
+  padding: 4px 16px;
+  background-color: $brand-primary;
+  color: $white;
+}
+
+.post__yield {
+  ul {
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+.post__footer {
+  h4 { 
+    font-size: 1rem; 
+  }
+}

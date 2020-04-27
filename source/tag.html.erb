@@ -1,0 +1,72 @@
+---
+title: Blog
+description: "Our thoughts on product design, engineering and the world of startups"
+pageable: true
+per_page: 10
+---
+<section class="hero blog__hero">
+  <div class="gradient-overlay gradient-overlay--dark"></div>
+  <div class="container">
+
+    <div class="col-12">
+      <hgroup>
+        <h1 class="mega">Geeking out on <span class="u-lowercase"><%= tagname %>.</span></h1>
+      </hgroup>
+    </div>
+
+  </div>
+</section>
+<!-- /blog hero -->
+
+<section>
+  <div class="container">
+
+    <div class="col-2">
+      <ol class="tag-list">
+        <li><a href="/blog" class="tag-list__link">All</a>
+      <% blog.tags.each do |tag, articles| %>
+        <li><%= link_to "#{tag}", tag_path(tag), :class => 'tag-list__link' %></li>
+     <% end %>
+     </ol>
+    </div>
+
+    <div class="col-10">
+<% page_articles.each_with_index do |article, i| %>
+    <% link_to article, :class => 'post-listing' do %>
+
+      <div>
+        <h2 class="alpha"><%= article.title %></h2>
+        <p class="lede"><%= article.data.preview %></p>
+<!--
+        <div class="post-listing__meta">
+          <%= article.date.strftime('%b. %e %Y') %>
+        </div>
+-->
+      </div>
+
+      <div class="u-cf"></div>
+    <% end %>
+<% end %>
+    </div>
+
+  </div>
+</section>
+<!-- /post list -->
+
+<%#= partial "partials/social-cta" %>
+
+
+
+<% if paginate && num_pages > 1 %>
+  <p>Page <%= page_number %> of <%= num_pages %></p>
+
+  <% if prev_page %>
+    <p><%= link_to 'Previous page', prev_page %></p>
+  <% end %>
+<% end %>
+
+<% if paginate %>
+  <% if next_page %>
+    <p><%= link_to 'Next page', next_page %></p>
+  <% end %>
+<% end %>

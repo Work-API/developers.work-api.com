@@ -1,0 +1,147 @@
+---
+title: Home 
+---
+
+<section class="landing__section-3 section--full section--counter">
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <div class="row">
+          <h2 class="card__title"><%=data.home.sections[0].title%></h2>
+          <hr>
+          <div>
+            <p class="epsilon text--grey-4"><%=data.home.sections[0].body%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a class="btn btn--brand btn--wide text--heavy" href="<%= data.site.register_path %>"><%=data.site.register_btn_short%></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 offset-1 pt-7-5">
+        <img class="u-width--full" src="/media/img/illustration-hero.png">
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- /section 1 -->
+
+<section class="section--full section--counter landing__section-5 u-bg--white"  id="home_003">
+  <div class="container">
+
+    <div class="row">
+      <h2><%=data.home.sections[1].title%></h2>
+      <hr>
+    </div>
+
+    <div class="row">
+      <% data.home.sections[1].columns.each_with_index do |column, index| %>
+        <div class="col-5">
+          <div class="row">
+            <% if index.zero? %>
+              <h3 class="text--brand"><%=column.title%></h3>
+            <% else %>
+              <h3 class="text--brand" style="position: relative">
+                <%=column.title%> 
+                <img style="position: absolute; top: -8px; right: 0;" width="40" src="/media/img/logo-icon.png">
+              </h3>
+            <% end %>
+          </div>
+
+          <% column.points.each_with_index do |point, point_index| %>
+            <div class="row comparison-point point-<%= point_index %>">
+              <% if index == 1 %>
+                <span class="col-divider"></span>
+              <% end %>
+              <span class="bullet-point text--brand">&mdash;</span> 
+              <span class="comparison-body"><%=point %></span>
+            </div>
+          <% end %>
+
+          <h4 class="text--brand">&equals; <%=column.conclusion %></h4>
+        </div>
+        <% if index == 0 %>
+          <div class="col-1"><img width="100%" height="10" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="></div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-11">
+        <div class="text--center">
+          <a class="btn btn--brand btn--large text--heavy" href="<%= data.site.register_path %>"><%=data.site.register_btn_short%></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /section 2 -->
+
+
+<section class="section--counter u-bg--white landing__users">
+  <div class="container">
+    <div class="row">
+      <h2></h2>
+
+    </div>
+
+    <% data.home.sections[2].points.each do |point| %>
+      <div class="row">
+        <div class="bullet-point-large">
+          <h3 class="text--brand bullet-point-heading"><%=point.title %></h3>
+          <span class="bullet-point-subheading"><%=point.description %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+<!-- /section 3 -->
+
+
+<section class="section--counter section--full u-bg--white landing__users">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2></h2>
+          
+        <div class="text--center">
+          <a class="btn btn--brand btn--wide text--heavy" href="<%= data.site.register_path %>">Start Building</a>
+        </div>
+      </div>
+    </div>
+
+    <% data.home.sections[3].subsections.each_with_index do |subsection, index| %>
+      <div class="row subsection__illustrated subsection__idx-<%= index %>">
+        <div class="col-3 text--center">
+          <img class="illustration" width="<%=subsection.illustration_width %>" src="<%=subsection.illustration %>">
+        </div>
+        <div class="col-9">
+          <h3><%=subsection.title %></h3>
+          <h4 class="subsection--subtitle text--brand"><%=subsection.subtitle %></h4>
+          <div class="bullet-point-large no-icon">
+            <% subsection.points.each do |point| %>
+              <% if point.is_a?(Hash) %>
+                <span class="bullet-point-subheading">
+                  <%=point.title %>
+                  <% point.points.each do |subpoint| %>
+                    <span class="bullet-point-subheading"><%= subpoint %></span> 
+                  <% end %>
+                </span>
+              <% else %>
+                <span class="bullet-point-subheading"><%=point %></span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+<!-- /section 4 -->
+
+<%= partial 'partials/footer_cta' %>
+
+<%= javascript_include_tag "zoom.min.js" %>

@@ -1,0 +1,39 @@
+.footer {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-left: 88px;
+  @media only screen and (max-width: 640px) {
+    margin-left: 40px;
+  }
+  background-color: $white;
+  color: $grey-3;
+  font-size: 0.8rem;
+  letter-spacing: 0.07rem;
+  font-weight: 300;
+  .u-hard--bottom {
+    margin-bottom: 0;
+  }
+  @media only screen and (max-width: 1000px) {
+    .container {
+      width: 95%;
+    }
+  }
+
+  .logos-tagline{
+    margin-top: 20px;
+  }
+}
+
+.footer-nav__link {
+  display: inline-block;
+  padding: 0 12px 0 0;
+  line-height: 2;
+  color: $grey-3;
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+  @media only screen and (max-width: 850px) {
+    display: block;
+    padding-left: 0;
+  }
+}

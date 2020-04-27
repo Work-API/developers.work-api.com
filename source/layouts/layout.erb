@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <%= partial "partials/head" %>
+
+  <body class="<%= page_classes %>">
+    <%= partial "partials/header" %>
+
+    <div class="fixed-top">
+      <img class="logo-name" src="/media/img/header-logo-name.png" />
+      <div class="fixed-cta">
+        <a class="" href="<%= data.site.login_path %>">Sign In</a>
+        <a class="btn btn--brand" href="<%= data.site.register_path %>">Try it free</a>
+      </div>
+    </div>
+    
+    
+    <%= yield %>
+    
+    <%= partial "partials/footer" %>
+    <%= partial "partials/footer-scripts" %>
+  </body>
+</html>

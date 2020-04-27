@@ -1,0 +1,31 @@
+ul.list-style-dash {
+  list-style-type: none;
+
+  li {
+    &:before {
+      content: "— ";
+    }
+  }
+}
+
+ol {
+
+  li { 
+    display: block; 
+    margin-bottom: 3rem;
+  }
+  li ol { margin-top: 1rem; }
+  li ol li { margin-bottom: 1rem; }
+  &> li:first-child { counter-reset: item; }
+  &> li { 
+    counter-increment: item; 
+    position: relative;
+    margin-left: 2rem;
+  }
+  &> li:before { 
+    content: counters(item, ".") ". "; 
+    position: absolute;
+    margin-right: 100%;
+    right: 10px
+  }
+}

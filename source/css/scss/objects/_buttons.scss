@@ -1,0 +1,148 @@
+//  Base button styling
+//  -------------------
+.btn {
+  vertical-align: middle;
+  margin: 0;
+  display: inline-block;
+  padding: 0 1.4em;
+  border: 1px solid $black;
+  border-radius: $brand-border-radius;
+  background-color: transparent;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  color: $black;
+  line-height: 3;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  @media only screen and (max-width: 850px) {
+    font-size: 0.6rem;
+    white-space: normal;
+  }
+}
+
+
+//  Button sizes
+//  ------------
+.btn--small {
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 2;
+}
+
+.btn--large {
+  padding-right: 2.2em;
+  padding-left: 2.2em;
+  line-height: 4;
+}
+
+.btn--huge {
+  padding-right: 2.4em;
+  padding-left: 2.4em;
+  line-height: 5;
+}
+
+.btn--wide {
+  padding-right: 5em;
+  padding-left: 5em;
+  line-height: 4;
+}
+
+.btn--full {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+}
+
+
+
+//  Button font-size modifiers
+//  --------------------------
+.btn--alpha {
+  font-size: 3rem;
+}
+
+.btn--beta {
+  font-size: 2rem;
+}
+
+.btn--gamma {
+  font-size: 1.5rem;
+}
+
+//  Make the button inherit sizing from its parent.
+.btn--natural {
+  vertical-align: baseline;
+  font-size: inherit;
+  line-height: inherit;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+
+
+//  Button function modifiers
+//  -------------------------
+.btn--primary {
+  background-color: $black;
+  border-color: $black;
+  color: $white;
+}
+.btn--secondary {
+  background-color: transparent;
+  border-color: $black;
+  color: $black;
+  &.btn--white {
+    border-color: $white;
+    color: $white;
+  }
+}
+.btn--brand {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: $white;
+}
+
+//  Negative actions; e.g. close account, delete photo, remove friend, etc.
+.btn--negative {
+  background-color: $red;
+  border-color: $red;
+  color: $white;
+}
+
+
+//  Inactive, disabled buttons
+//  --------------------------
+//  1. Prevent the button looking clickable when hovered.
+.btn--inactive,
+.btn--inactive:hover,
+.btn--inactive:active,
+.btn--inactive:focus {
+  opacity: 0.5;
+  cursor: default;            // [1]
+}
+
+
+
+//  Button style modifiers
+//  ----------------------
+//  1. Use an overly-large number to ensure completely rounded, pill-like ends.
+.btn--soft {
+    border-radius: 200px;        // [1]
+}
+
+.btn--hard {
+    border-radius: 0;
+}

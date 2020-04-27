@@ -1,0 +1,38 @@
+.card {
+  position: relative;
+  padding: 64px;
+  background-color: $white;
+  box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.10), 0px 0px 1px 0px rgba(25,18,7,0.25);
+  transition: all 0.3s ease;
+  .btn {
+    position: absolute;
+    right: -8px;
+    bottom: 16px;
+  }
+  p:last-of-type {
+    margin-bottom: 2rem;
+  }
+  &.is-inactive {
+    box-shadow: none;
+    cursor: pointer;
+    border-radius: 3px;
+    &:hover {
+      box-shadow: 0 0 0 1px lighten($grey-2,10);
+    }
+  }
+}
+
+.card__title {
+  margin-bottom: 2rem;
+}
+
+.card--small {
+  padding: 16px;
+  margin-bottom: 1rem;
+  p:last-of-type {
+    margin: 0;
+  }
+  @media only screen and (min-width: 830px) {
+    padding: 24px;
+  }
+}

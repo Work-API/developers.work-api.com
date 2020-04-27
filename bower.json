@@ -1,0 +1,24 @@
+{
+  "name": "work-api",
+  "description": "Website for Work-API",
+  "main": "js/scripts.js",
+  "authors": [
+    "tristam@damnfine.io",
+    "dan@livil.co"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/livilco/workapi-marketing-www",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "cookieconsent": "cookieconsent2#^3.0.3"
+  }
+}

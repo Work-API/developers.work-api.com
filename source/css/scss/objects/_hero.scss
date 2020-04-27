@@ -1,0 +1,24 @@
+.hero {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: $white;
+  background-size: cover;
+  overflow: hidden;
+  @media only screen and (max-height: 680px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.hero--alpha {
+  height: 100vh;
+  .container { height: 100%; }
+}
+
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}

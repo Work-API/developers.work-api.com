@@ -1,0 +1,21 @@
+.logo {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: (100 / 100) * 100%;
+  }
+}
+
+.logo__inner {
+  position: absolute;
+  @include position(0,0,0,0);
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: image-url('logo-icon.png');
+}

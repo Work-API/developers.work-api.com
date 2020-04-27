@@ -1,0 +1,13 @@
+.product__how {
+  @media only screen and (max-width: 850px) {
+    .text--right {
+      text-align: left;
+    }
+  }
+}
+
+.functionality-illustration {
+  @media only screen and (max-width: 850px) {
+    width: 50%;
+  }
+}

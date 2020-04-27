@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+html {
+  font:#{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
+  width: 100%;
+  overflow: hidden;
+  overflow-y:scroll;
+  min-height:100%;
+  max-width: 100%;
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+}
+
+body {
+  counter-reset: section;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  color: $white;
+  background: rgba($brand-primary,0.8); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  color: $white;
+  background: rgba($brand-primary,0.8); /* Gecko Browsers */
+}
+
+a {
+  cursor:pointer;
+}

@@ -1,0 +1,33 @@
+.post-listing {
+  display: block;
+  padding: 8px  16px 16px 16px;
+  border-bottom: 1px solid $grey-1;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  .alpha {
+    font-size: $h3-size;
+    color: $black;
+    &:after {
+      content: "";
+      margin: 16px 0;
+      display: block;
+      width: 160px;
+      height: 1px;
+      background-color: $brand-primary;
+    }
+  }
+  &:hover {
+    box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.10), 0px 0px 1px 0px rgba(25,18,7,0.25);
+    cursor: pointer;
+  }
+}
+
+.post__yield {
+  a { color: $brand-primary; }
+  p {
+    color: $grey-4;
+    margin-bottom: 1.5rem;
+  }
+  img { max-width: 100%; }
+}

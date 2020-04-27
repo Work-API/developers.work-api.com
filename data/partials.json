@@ -1,0 +1,33 @@
+{
+  "product_usps": {
+    "cards": [{
+      "icon": "icon-time.png",
+      "title": "Win Back Time",
+      "body": "Stop wasting valuable hours navigating disconnected information silos."
+    }, {
+      "icon": "icon-action.png",
+      "title": "Streamline Your Work",
+      "body": "Connect tools from different providers with each other and standardize work processes."
+    }, {
+      "icon": "icon-focus.png",
+      "title": "Filter Out Noise",
+      "body": "Search centrally across silos, set filters to focus on what is actually relevant."
+    }]
+  },
+
+  "product_usps_enterprise": {
+    "cards": [{
+      "icon": "icon-time.png",
+      "title": "Increased Productivity",
+      "body": "Stop your team from wasting valuable hours navigating disconnected information silos."
+    }, {
+      "icon": "icon-action.png",
+      "title": "One Home for your team",
+      "body": "Customize the interface and make ita user’s only web contact point [OPTIONAL]."
+    }, {
+      "icon": "icon-focus.png",
+      "title": "Central Access Managemen",
+      "body": "Provide, monitor or revoke a user’s access to the different cloud apps in one step."
+    }]
+  }
+}

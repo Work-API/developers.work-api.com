@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%= partial "partials/head" %>
+
+  <body class="<%= page_classes %>">
+    <%= partial "partials/header" %>
+
+    <div class="fixed-cta">
+      <a class="u-m--hide" href="<%= data.site.login_path %>">Login</a>
+      <a href="<%= data.site.register_path %>">Get Started</a>
+    </div>
+
+    <% content_tag :section, :class => "post__hero", :style => "background-image: url('/blog/" + current_article.data.hero_image + "');" do %>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12">
+            <h1 class="article__title"><%= current_article.title %></h1>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+
+    <section>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-3">
+            <div>
+              <h6>AUTHOR</h6>
+              <%= current_article.data.author %>
+            </div>
+            <br>
+            <div>
+              <h6>POSTED</h6>
+              <%= current_article.date.strftime('%b. %e %Y') %>
+            </div>
+
+            <a class="btn u-med--top" href="/blog">< Back</a>
+          </div>
+
+          <div class="col-8">
+            <p class="lede"><%= current_article.data.lede %></p>
+            <hr>
+            <div class="post__yield">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-8 offset-3 post__footer">
+            <h4>The Universal Adapter To Integrate Work Tools</h4>
+            <hr>
+            <p>Use our standardized Work API to easily connect work tools to your use case</p>
+            <br>
+            <a class="btn btn--brand" href="<%= data.site.register_path %>" title="<%=data.site.register_btn_short %>"><%=data.site.register_btn_short %></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="pagination pagination--incremental">
+      <div class="container">
+<% prev_article = current_article.previous_article %>
+<% next_article = current_article.next_article %>
+        <div class="col-6">
+<% if next_article %>
+          <h6 class="sub-heading">UP NEXT</h6>
+  <%= link_to current_article.next_article.title, next_article, :class => 'link--block inline-link u-weight-light' %>
+<% end %>
+        </div>
+
+<% if !next_article %>
+        <div class="col-6 offset-6">
+<% end %>
+<% if next_article %>
+        <div class="col-6">
+<% end %>
+<% if prev_article %>
+          <h6 class="sub-heading">PREVIOUSLY</h6>
+  <%= link_to current_article.previous_article.title, prev_article, :class => 'link--block inline-link u-weight-light' %>
+<% end %>
+        </div>
+
+      </div>
+    </section>
+
+    <%= partial "partials/footer" %>
+    <%= partial "partials/footer-scripts" %>
+  </body>
+</html>

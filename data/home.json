@@ -1,0 +1,78 @@
+{
+  "sections": [
+
+  {
+    "title": "The Universal Adapter To Integrate Work Tools",
+    "body": "Use our standardized Work API to easily connect work tools to your use case"
+  },
+
+  {
+    "title": "Connecting work integrations to your use case",
+    "columns": [{
+      "title": "Without&nbsp;the&nbsp;Work&nbsp;API",
+      "points": [
+        "Lots of different work tools, each requiring their own logic for integration",
+        "Gaps / differences in the functionalities offered by the tool providers' APIs",
+        "Painstaking process to connect two tools (handle data formats, paradigms, errors, idiosyncracies unique to each platform)",
+        "Tool providers change integrations over time, requiring re-builds of your solution",
+        "You do not know before building the integrations if it's worth the cost"
+      ],
+      "conclusion": "Disproportionate resource requirements"
+    },
+    {
+      "title": "With&nbsp;the&nbsp;Work API",
+      "points": [
+        "One consistent SDK covering all work media forms and integrations",
+        "We filled the gaps and aligned the differences in the functionalities offered",
+        "All tools are interconnected already, enabling cross-tool functionalities (e.g. save email attachments)",
+        "Our API remains persistent, no need for re-builds!",
+        "No risk involved: The costs scale 100% with usage. First 50,000 requests free every month!"
+      ],
+      "conclusion": "Saving time, money, and frustration"
+    }]
+  },
+
+  {
+    "points": [{
+      "title": "We stay out of your users' content",
+      "description": "All content remains hosted by the tool provider - our API acts as a 'pipe'"
+    },{
+      "title": "You only pay for the number of requests you send to our API",
+      "description": "The costs scale fully with your application"
+    },{
+      "title": "Everything comes pre-connected to each other",
+      "description": "For example attach a Google Drive file to an Outlook Email in one request"
+    }]
+  },
+
+  {
+    "subsections": [{
+      "illustration": "/media/img/landing-illustration-connectivity.png",
+      "illustration_width": 129,
+      "title": "Full connectivity",
+      "subtitle": "Import functionality from work tools required in your use case, e.g.",
+      "points": [
+        "Full email functionality (including folders, labels, etc.)",
+        "In-app scheduling functionality",
+        "File management requirements",
+        "Holistic contact availability"
+      ]
+    },{
+      "illustration": "/media/img/landing-illustration-productivity.png",
+      "illustration_width": 185,
+      "title": "Real productivity",
+      "subtitle": "Connect existing work tools to each other to improve processes",
+      "points": [
+        "Consolidate content from different tools &amp; increase transparency",
+        "Streamline or automate work proccesses",
+        {
+          "title": "Build efficient, integrated work interfaces",
+          "points": [
+            "Provide access limited to relevant functionality/content only",
+            "Ensure consistent processes and a consistent interface across tools &amp; media forms"
+          ]
+        }
+      ]
+    }]
+  }]
+}

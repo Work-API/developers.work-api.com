@@ -1,0 +1,32 @@
+{
+  "sections": [{
+    "title": "API Pricing",
+    "points": [
+      "100% scalable pricing for Software Developers (\"pay-as-you-go\")",
+      "You only pay for the exact number of API requests that your application has sent to us",
+      { "body": "The first 50,000 requests per month are free", "highlight": true },
+      "The more requests, the cheaper it gets per request"
+    ],
+    "table": {
+      "rows": { 
+        "Number of requests<br>(per month)": "Price per 1000&nbsp;requests",
+        "1<sup>st</sup> to 50,000<sup>th</sup>": "€0.00",
+        "50,000<sup>th</sup>&nbsp;to&nbsp;1,000,000<sup>th</sup>": "€0.30",
+        "1,000,000<sup>th</sup>&nbsp;to&nbsp;4,000,000<sup>th</sup>": "€0.20",
+        "4,000,000<sup>th</sup>&nbsp;to&nbsp;15,000,000<sup>th</sup>": "€0.16"
+      }
+    },
+    "example_title": "Example cost breakdown:",
+    "example_points": [
+      "If your applications make <strong>60,000</strong> requests in a month",
+      "The first <strong>50,000</strong> requests cost <strong>€0</strong>",
+      "The <strong>50,001st</strong> to <strong>60,000th</strong> request cost <strong>€0.30</strong> per thousand",
+      "The total cost for that month: <strong>€3.00</strong>"
+    ]
+  },{
+    "title": "Pricing for larger number of requests and custom solutions",
+    "points": [
+      "Please contact us to discuss pricing and hosting options"
+    ]
+  }]
+}

@@ -1,0 +1,41 @@
+<footer class="footer">
+  <div class="container">
+
+    <div class="row u-m--hide footer-nav__personal">
+      <div class="col-8">
+        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
+        <a class="footer-nav__link" href="/security">Security</a>
+        <a class="footer-nav__link" href="/pricing">Pricing</a>
+        <a class="footer-nav__link" href="#">Documentation</a>
+        <a class="footer-nav__link" href="/about">About</a>
+        <a class="footer-nav__link" href="/blog">Blog</a>
+        <a class="footer-nav__link" href="/contact">Contact Us</a>
+      </div>
+
+      <div class="col-4 text--right">
+        <a class="footer-nav__link" href="<%= data.site.login_path %>">Login</a>
+        <a class="footer-nav__link" href="<%= data.site.register_path %>">Signup</a>
+      </div>
+    </div>
+
+    <div class="row u-hard--bottom">
+      <div class="col-4">
+        &copy; <%= data.site.name %> <%=Time.now.strftime "%Y"%>
+      </div>
+
+      <div class="col-4 u-text--center">
+        &nbsp;
+      </div>
+
+      <div class="col-4 u-text--right">
+        <a class="footer-nav__link" href="/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="/privacy">Privacy</a>
+        <a class="footer-nav__link" href="/imprint">Imprint</a>
+      </div>
+      <div class="col-12 logos-tagline">
+       <%= data.site.logos_tagline.sub('%year%', (Time.now.strftime "%Y")) %>
+      </div>
+    </div>
+
+  </div>
+</footer>
