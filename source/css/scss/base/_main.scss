@@ -6,8 +6,6 @@ $breakpoint: 580px;
 html {
   font:#{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
   width: 100%;
-  overflow: hidden;
-  overflow-y:scroll;
   min-height:100%;
   max-width: 100%;
   letter-spacing: 0.1rem;
