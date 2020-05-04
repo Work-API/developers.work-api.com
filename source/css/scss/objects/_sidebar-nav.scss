@@ -1,0 +1,66 @@
+.secondary-navigation, .tertiary-navigation {
+  hr {
+    margin: 1rem 0;
+  }
+  ul {
+    list-style-type: none;
+    
+    &> li {
+      font-weight: 700;
+      font-size: 0.75rem;
+
+      ul {
+        margin-top: 0.6rem;
+      }
+
+      &> a, ul li {
+        font-weight: 300;
+        font-size: 0.85rem;
+      }
+    }
+
+    li {
+      letter-spacing: 0.05rem;
+      margin-bottom: 0.6rem;
+
+      a {
+        color: $black;
+        text-decoration: none;
+
+        &.active {
+          color: darken($brand-primary, 10);
+        }
+      }
+    }   
+  } 
+
+  .navigation-inner--sticky {
+    position: sticky;
+    top: 128px;
+  }
+}
+
+.secondary-navigation {
+  width: 250px;
+}
+
+.tertiary-navigation {
+  min-width: 180px;
+  margin-top: 88px;
+
+  ul li {
+    &.level-h3 {}
+
+    &.level-h4 { 
+      padding-left: 0.5rem; 
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    &.level-h5 {
+      padding-left: 1rem;
+    }
+  }
+}

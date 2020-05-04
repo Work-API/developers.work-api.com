@@ -1,0 +1,90 @@
+.guide {
+  .body-content {
+    width: 100%;
+
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      color: $black;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05rem;
+    }
+
+    p, h3, h4, ul {
+      code {
+        letter-spacing: 0.05rem;
+        background: $white;
+        font-size: 0.95rem;
+        border: 1px solid $grey-2;
+        padding: 3px 4px 2px 5px;
+      }
+    }
+
+    pre { 
+      margin-bottom: 2rem;
+
+      code {
+        letter-spacing: initial;
+        padding: 1.5rem;
+      }
+    }
+
+    ul {
+      padding-left: 2rem;
+    }
+  }
+
+  &--panel {
+    padding: 1.5rem;
+    background: $white;
+    border: 1px solid darken($grey-2, 5);
+    margin-bottom: 2rem;
+
+    ul {
+      padding-left: 1.5rem; 
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    &--prerequisites, &--next-steps {
+      background: $white;
+    }
+
+    &--warning {
+      border: 1px solid darken($warning-red-bg, 5);
+      background: $warning-red-bg;
+
+      p {
+        color: $warning-red !important;
+      }
+    }
+  }
+
+  &--anchor {
+    position: relative;
+
+    &:hover:before {
+      font-size: 0.75rem;
+      position: absolute;
+      left: -1rem;
+      top: 0.35rem;
+      content: "🔗";
+    }
+
+    a {
+      color: $black;
+      text-decoration: none;
+
+    }
+  }
+
+}

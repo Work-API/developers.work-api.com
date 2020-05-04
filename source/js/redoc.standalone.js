@@ -1,0 +1,1 @@
+../../../redoc/bundles/redoc.standalone.js

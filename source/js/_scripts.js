@@ -11,7 +11,6 @@ function getUrlVars(){
 }
 
 $(document).ready(function() {
-
   $('section, footer').click(function() {
     $('#site_header').removeClass('is-active');
     $('section').removeClass('is-slid');

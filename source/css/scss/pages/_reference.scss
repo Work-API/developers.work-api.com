@@ -4,4 +4,16 @@
   p {
     color: $grey-4;
   }
+
+  [data-section-id$='_model'] {
+    .collapser {
+      display: none;
+    }
+    .ellipsis {
+      display: none !important;
+    }
+    .collapsible {
+      display: block !important;
+    }
+  }
 }

@@ -1,0 +1,71 @@
+---
+layout: guides-layout
+title: Guides | Managing a User 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Managing a User</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <h3 class="guide--anchor" id="deleting-user"><a href="#deleting-user">Deleting a User</a></h3> 
+
+      <p>A user account may be deleted using the user's token, using an APT, or via the WorkAPI Dashboard</p>
+
+      <h4 class="guide--anchor" id="delete-own-account"><a href="#delete-own-account">User deletes their own account</a></h4>
+
+      <p>The API allows an account to be deleted without authorization of the application developer by simply passing the user's token to the <code>DELETE /users/me</code> endpoint.</p>
+
+      <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+        The account will be deleted immediately and is not recoverable. Usage stats pertaining to billing will be recorded on the developer's account, and all of the user's integrations will have their credentials revoked (TBC) and records removed from the Work-API database.
+      <% end %>
+
+      <h5 class="guide--anchor" id="delete-own-account-example"><a href="#delete-own-account-example">Example</a></h5>
+
+      <pre><code class="language-ruby">token = "&lt;user's token&gt;" # stored when creating the user, or when previously refreshing the token
+client = LivilApi::Service.new(token)
+result = client.delete_user
+
+result # => :no_content</code></pre>
+
+      <h4 class="guide--anchor" id="developer-delete-user"><a href="#developer-delete-user">Developer deletes a user account using an APT</a></h4>
+
+      <p>The developer can perform the same rquest using an APT in place of the user's token:</p>
+
+      <h5 class="guide--anchor" id="developer-delete-example"><a href="#developer-delete-example">Example</a></h5>
+
+      <pre><code class="language-ruby">apt = "&lt;generated APT&gt;" # see 'Generating an APT'
+client = LivilApi::Service.new(apt)
+result = client.delete_user
+
+result # => :no_content</code>
+      </pre>
+
+      <h4 class="guide--anchor" id="developer-delete-user-dash"><a href="#developer-delete-user-dash">Developer deletes a user account via the Dashboard</a></h4>
+
+      <p>The developer can also delete the user via the account Dashboard</p>
+
+      <p>[TODO: Describe process and insert screengrabs from styled dashboard]</p>
+
+      <h3 class="guide--anchor" id="developer-de-reactivate-user"><a href="#developer-de-reactivate-user">De/re-activating a User</a></h3>
+
+      <p>A user account does not have to be deleted to block incoming requests. It may also be deactivated. This is useful in situations where an account should be suspended temporarily, e.g. the account is in arrears.</p>
+
+      <p>[TODO: Describe process and insert screengrabs from styled dashboard]</p>
+
+      <div id="next-steps" class="guide--panel guide--panel--prerequisites">
+        <h4 class="mb-2 guide--anchor"><a href="#next-steps">Next Steps</a></h4>
+        <ul>
+          <li><a href="/guides/create-integration">Create an Integration</a></li>        
+        </ul>
+      </div>
+    </div>
+  </section> 
+</div>

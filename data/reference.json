@@ -1,5 +1,6 @@
 {
   "sections": [{
-    "title": "Reference"
+    "title": "Reference",
+    "schema_url": "http://dans-macbook-pro.local:9292/schema.json"
   }]
 }

@@ -1,0 +1,13 @@
+{
+  "secondary_nav": {
+    "Overview": "/guides",
+    "Getting Started": {
+      "Setup Developer Account": "/guides/create-account",
+      "Create an Environment": "/guides/create-environment",
+      "Create a User": "/guides/create-user",
+      "Manage a User": "/guides/manage-user",
+      "Create an Integration": "/guides/create-integration"
+    },
+    "Object Model": "/guides/object-model" 
+  }
+}

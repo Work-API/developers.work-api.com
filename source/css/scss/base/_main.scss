@@ -10,6 +10,7 @@ html {
   max-width: 100%;
   letter-spacing: 0.1rem;
   font-weight: 300;
+  scroll-padding-top: 112px;
 }
 
 body {
@@ -34,5 +35,6 @@ body {
 }
 
 a {
+  color: $brand-primary;
   cursor:pointer;
 }
