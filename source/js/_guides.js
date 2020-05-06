@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function setupTertiaryContents() {
   let $tertiaryNavUl = $('.tertiary-navigation > .navigation-inner--sticky ul.nav-content');
 
   $('.guide h3, .guide h4, .guide h5').toArray().forEach(function(elem) {
@@ -9,4 +9,17 @@ $(document).ready(function() {
   if ($tertiaryNavUl.children().length == 0) {
     $tertiaryNavUl.parent().parent().remove();
   }
+}
+
+function setupTertiaryHighlights() {
+  new ActiveMenuLink.default('.tertiary-navigation ul', {
+    headerHeight: 120,
+    scrollOffset: -200,
+    itemTag: 'li'
+  });
+}
+
+$(document).ready(function() {
+  setupTertiaryContents();
+  setupTertiaryHighlights();
 });

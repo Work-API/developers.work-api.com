@@ -17,46 +17,50 @@ next_steps:
 
       <p>Now that we have created an account, we can set up our first environment. </p>
 
-      <h3 class="guide--anchor" id="what-is-an-environment"><a href="#what-is-an-environment">What is an Environment?</a></h3>
+      <div id="what-is-an-environment">
+        <h3 class="guide--anchor" id="what-is-an-environment"><a href="#what-is-an-environment">What is an Environment?</a></h3>
 
-      <p>An Environment is a wrapper around a set of API credentials. It contains the keys for any providers with which your application will interact.  </p>
-      <p>Each account can have many environments. These can be used for different appilcations, or even for different stages for the same application. </p>
-      <p>A common use case is to have 3 environments: <code>Test/Development</code>, <code>Staging</code> and <code>Production</code>.  </p>
-      <p>The credentials for these are then added to your application's config for each stage, and in doing so avoids polluting your production environment while developing and testing.  </p>
+        <p>An Environment is a wrapper around a set of API credentials. It contains the keys for any providers with which your application will interact.  </p>
+        <p>Each account can have many environments. These can be used for different appilcations, or even for different stages for the same application. </p>
+        <p>A common use case is to have 3 environments: <code>Test/Development</code>, <code>Staging</code> and <code>Production</code>.  </p>
+        <p>The credentials for these are then added to your application's config for each stage, and in doing so avoids polluting your production environment while developing and testing.  </p>
+      </div>
 
-      <h3 class="guide--anchor" id="creating-an-environment"><a href="#creating-an-environment">Creating an Envionment</a></h3>
+      <div id="creating-an-environment">
+        <h3 class="guide--anchor"><a href="#creating-an-environment">Creating an Envionment</a></h3>
 
-      <p>Once signed up and logged in, and if you don't already see the Environments page already, navigate to the Environments tab and click 'Add'. </p>
+        <p>Once signed up and logged in, and if you don't already see the Environments page already, navigate to the Environments tab and click 'Add'. </p>
 
-      <p>[SCREENGRAB]</p>
+        <p>[SCREENGRAB]</p>
 
-      <p>You are now asked to provide basic identifying and configuration information for the new environment.  </p>
+        <p>You are now asked to provide basic identifying and configuration information for the new environment.  </p>
 
-      <p>Once you have filled out the required fields, click 'Create'. </p>
+        <p>Once you have filled out the required fields, click 'Create'. </p>
 
-      <p>[SCREENGRAB]</p>
+        <p>[SCREENGRAB]</p>
 
-      <p>We are now presented with a warning. This details the availability of the private Key which grants full access to the environment.  </p>
+        <p>We are now presented with a warning. This details the availability of the private Key which grants full access to the environment.  </p>
 
-      <p>This is not held on in our systems, and so should be stored in a secure location. </p>
-      
-      <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
-        The private key does not exist anywhere on the Work API platform (neither accessible to the developer or Work-API staff) after navigating away from this screen. 
-        <br><br>
-        If this key is lost, the developer will no longer be able to create new user accounts, issue new access tokens. Any applications connected to the environment would need to be updated to use a new Work-API environment.
-      <% end %>
+        <p>This is not held on in our systems, and so should be stored in a secure location. </p>
 
-      <p>If the key is lost or misplaced, it can not be recovered and a new environment will need to be created in order to manage your users. </p>
+        <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
+          The private key does not exist anywhere on the Work API platform (neither accessible to the developer or Work-API staff) after navigating away from this screen. 
+          <br><br>
+          If this key is lost, the developer will no longer be able to create new user accounts, issue new access tokens. Any applications connected to the environment would need to be updated to use a new Work-API environment.
+        <% end %>
 
-      <p>The private key is used to sign requests which allow users to create accounts, reauthorize accounts, and peform various admin-level operations on the environment. </p>
+        <p>If the key is lost or misplaced, it can not be recovered and a new environment will need to be created in order to manage your users. </p>
 
-      <p>The corresponding public key is stored on our servers, and is available for download at any time should you wish to use it for validation. </p>
+        <p>The private key is used to sign requests which allow users to create accounts, reauthorize accounts, and peform various admin-level operations on the environment. </p>
 
-      <p>So we now save this to our local machine, and create backups as necessary. </p>
+        <p>The corresponding public key is stored on our servers, and is available for download at any time should you wish to use it for validation. </p>
 
-      <p>The basic environment information is now shown on the screen. </p>
+        <p>So we now save this to our local machine, and create backups as necessary. </p>
 
-      <p>[SCREENGRAB]</p>
+        <p>The basic environment information is now shown on the screen. </p>
+
+        <p>[SCREENGRAB]</p>
+      </div>
 
       <%= partial 'partials/guides/next-steps' %>
     </div>

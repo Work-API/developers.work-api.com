@@ -17,43 +17,52 @@ next_steps:
 
       <%= partial 'partials/guides/prerequisites' %>
 
-      <h3 class="guide--anchor" id="overview"><a href="#overview">Overview</a></h3>
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
 
-      <p>In order to create an account, the developer must issue a signed request that verifies a user/application has permission to do so.</p> 
+        <p>In order to create an account, the developer must issue a signed request that verifies a user/application has permission to do so.</p> 
 
-      <p class="mb-1">This does the following: </p> 
+        <p class="mb-1">This does the following: </p> 
 
-      <ul>
-        <li>ensures the user is creating an account via the developer's app/platform</li>
-        <li>provides reasonable assurance that the user's actions on the platform can be tracked for billing purposes</li>
-        <li>reduces the possibility that a malicious user can abuse the system</li>
-      </ul>
+        <ul>
+          <li>ensures the user is creating an account via the developer's app/platform</li>
+          <li>provides reasonable assurance that the user's actions on the platform can be tracked for billing purposes</li>
+          <li>reduces the possibility that a malicious user can abuse the system</li>
+        </ul>
 
-      <p></p>
+        <p></p>
+      </div>
 
-      <h3 class="guide--anchor" id="user-model"><a href="#user-model">User model</a></h3> 
+      <div id="user-model">
+        <h3 class="guide--anchor"><a href="#user-model">User model</a></h3> 
 
-      <p>See the reference section for <a href="/api/v1/reference#tag/user_model">User model</a>.</p>
+        <p>See the reference section for <a href="/api/v1/reference#tag/user_model">User model</a>.</p>
+      </div>
 
-      <h3 class="guide--anchor" id="create-user"><a href="#create-user">Creating a User on the new Environment</a></h3>
+      <div id="create-user">
+        <h3 class="guide--anchor"><a href="#create-user">Creating a User on the new Environment</a></h3>
 
-      <p>The creation of a new user account requires the developer to generate an Account Provider Token (APT). This is a simply a JWT that has been encrypted and signed using the environment's private key.</p>
+        <p>The creation of a new user account requires the developer to generate an Account Provider Token (APT). This is a simply a JWT that has been encrypted and signed using the environment's private key.</p>
 
-      <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
-        It is highly recommended that the key not be stored inside any client-side app or code as it can be easily extracted and abused.
-      <% end %>
+        <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
+          It is highly recommended that the key not be stored inside any client-side app or code as it can be easily extracted and abused.
+        <% end %>
 
-      <p>We recommend that the developer creates the user account via their own backend application rather than creating the Work API user account from the client application. This gives the developer full control over account management and ensures the private key is not exposed.</p>
+        <p>We recommend that the developer creates the user account via their own backend application rather than creating the Work API user account from the client application. This gives the developer full control over account management and ensures the private key is not exposed.</p>
+      </div>
 
-      <h3 class="guide--anchor" id="generate-apt"><a href="#generate-apt">Generating an APT</a></h3>
+      <div id="generate-apt">
+        <h4 class="guide--anchor"><a href="#generate-apt">Generating an APT</a></h4>
 
-      <p>If you are making a user creation request via the Ruby SDK, you can skip this section and jump to 'Creating the user'.</p>
+        <p>If you are making a user creation request via the Ruby SDK, you can skip this section and jump to 'Creating the user'.</p>
 
-      <p>To generate the APT, you use your private key to sign the payload of a JWT.</p>
+        <p>To generate the APT, you use your private key to sign the payload of a JWT.</p>
+      </div>
 
-      <h4 class="guide--anchor" id="generate-apt-example"><a href="#generate-apt-example">Example</a></h4>
+      <div id="generate-apt-example">
+        <h4 class="guide--anchor"><a href="#generate-apt-example">Example</a></h4>
 
-      <pre> <code class="language-ruby">apt = LivilApi::AptGenerator.generate_apt(
+        <pre> <code class="language-ruby">apt = LivilApi::AptGenerator.generate_apt(
   environment_guid: '123456-1234-5678-12345679', 
   path_to_private_key: '/path/to/my-key.pem',
   arbitrary_id: 'user_xyz123',
@@ -63,35 +72,41 @@ next_steps:
 apt 
 # => 'eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE1ODQxMTQyNzQsImlhdCI6MTU....' </code></pre>
 
-      <p>The <code>environment_guid</code> can found in the dashboard, <code>path_to_private_key</code> is the location of the <code>.pem</code> file from when you created the environment.</p>
+        <p>The <code>environment_guid</code> can found in the dashboard, <code>path_to_private_key</code> is the location of the <code>.pem</code> file from when you created the environment.</p>
 
-      <p>The <code>arbitrary_id</code> is the identifier by which a user can be located in the Work-API system.</p> 
+        <p>The <code>arbitrary_id</code> is the identifier by which a user can be located in the Work-API system.</p> 
+      </div>
 
-      <h3 class="guide--anchor" id="creating-user"><a href="#creating-user">Creating the user</a></h3> 
+      <div id="creating-user">
+        <h3 class="guide--anchor"><a href="#creating-user">Creating the user</a></h3> 
 
-      <p>A user must:</p>
+        <p>A user must:</p>
 
-      <ul class="mb-2">
-        <li>be assigned an <code>arbitrary_id</code></li>
-        <li>belong to an environment</li>
-        <li>be created using an APT</li>
-      </ul>
+        <ul class="mb-2">
+          <li>be assigned an <code>arbitrary_id</code></li>
+          <li>belong to an environment</li>
+          <li>be created using an APT</li>
+        </ul>
+      </div>
 
-      <h4 class="guide--anchor" id="what-is-arbitrary-id"><a href="#what-is-arbitrary-id">What is an <code>arbitrary_id</code>?</a></h4>
+      <div id="what-is-arbitrary-id">
+        <h4 class="guide--anchor"><a href="#what-is-arbitrary-id">What is an <code>arbitrary_id</code>?</a></h4>
 
-      <p>An <code>arbitrary_id</code> is a unique field within the envirnoment which is used by the developer to reference the user.</p>
+        <p>An <code>arbitrary_id</code> is a unique field within the envirnoment which is used by the developer to reference the user.</p>
 
-      <p>It can be any arbitrary string of which the developer has an external and persistent copy. For example the user's acconut ID from the developer's database.</p> 
+        <p>It can be any arbitrary string of which the developer has an external and persistent copy. For example the user's acconut ID from the developer's database.</p> 
 
-      <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
-        It is recommended that the string be non-identifying information to avoid data traversing the Work-API system being deanonymizable.
-      <% end %>
+        <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
+          It is recommended that the string be non-identifying information to avoid data traversing the Work-API system being deanonymizable.
+        <% end %>
 
-      <p>The Ruby SDK will generate an APT as part of the user creation process.</p>
+        <p>The Ruby SDK will generate an APT as part of the user creation process.</p>
+      </div>
 
-      <h4 class="guide--anchor" id="create-user-example"><a href="create-user-example">Example</a></h4>
+      <div id="create-user-example">
+        <h4 class="guide--anchor"><a href="#create-user-example">Example</a></h4>
 
-      <pre>
+        <pre>
          <code class="language-ruby">environment_guid = '123456-1234-5678-12345679'
 path_to_private_key = '/path/to/pkey.pem'
 arbitrary_id = 'user_xyz123'
@@ -102,17 +117,21 @@ created_user = client.create_user(user: user, path_to_private_key: path_to_priva
 
 created_user
 # => LivilApi::User(arbitrary_id: 'user_xyz123', token: 'eyJhbGciOiJSUzI1NiJ9...', ... )</code>
-      </pre>
+        </pre>
+      </div>
 
       <h3 class="guide--anchor" ide="refresh-user-token"><a href="#refresh-user-token">Refreshing a user's token</a></h3> 
 
-      <h4 class="guide--anchor" id="before-expiration"><a href="#before-expiration">Before expiration</a></h4>
+      <div id="before-expiration">
+        <h4 class="guide--anchor"><a href="#before-expiration">Before expiration</a></h4>
 
-      <p>A user's JWT will expire after (TBD). While it is still valid, the client app can refresh the user token simply be making a request to the <code>/users/me</code> endpoint.</p>
+        <p>A user's JWT will expire after (TBD). While it is still valid, the client app can refresh the user token simply be making a request to the <code>/users/me</code> endpoint.</p>
+      </div>
 
-      <h5 class="guide--anchor" id="before-expiration-example"><a href="#before-expiration-example">Example</a></h5>
+      <div id="before-expiration-example">
+        <h5 class="guide--anchor"><a href="#before-expiration-example">Example</a></h5>
 
-      <pre><code class="language-ruby">token = '&lt;user token&gt;' # stored when creating the user, or when previously refreshing the token
+        <pre><code class="language-ruby">token = '&lt;user token&gt;' # stored when creating the user, or when previously refreshing the token
 
 client = LivilApi::Service.new(token)
 current_user = client.get_user
@@ -121,14 +140,18 @@ current_user
 # => LivilApi::User(arbitrary_id: 'user_xyz123', token: <updated token>)
 
 # new token should be stored</code></pre>
+      </div>
 
-      <h4 class="guide--anchor" id="after-expiration"><a href="#after-expiration">After expiration</a></h4> 
+      <div id="after-expiration">
+        <h4 class="guide--anchor"><a href="#after-expiration">After expiration</a></h4> 
 
-      <p>After expiry, a token must be reissued by the account provider using the APT. The process is very similar to reating a user, with the APT being generated under the hood when using the SDK.</p>
+        <p>After expiry, a token must be reissued by the account provider using the APT. The process is very similar to reating a user, with the APT being generated under the hood when using the SDK.</p>
+      </div>
 
-      <h5 class="guide--anchor" id="example"><a href="#example">Example</a></h5>
+      <div id="after-expiration-example">
+        <h5 class="guide--anchor"><a href="#after-expiration-example">Example</a></h5>
 
-      <pre><code>environment_guid = '123456-1234-5678-12345679' # the GUID of your environment
+        <pre><code>environment_guid = '123456-1234-5678-12345679' # the GUID of your environment
 path_to_private_key = '/path/to/pkey' # the location of your .pem
 arbitrary_id = 'user_xyz123' # the unique string you use to identifiy your user
 
@@ -138,9 +161,9 @@ reauthd_user = client.reauth_user(user: user, path_to_private_key: path_to_priva
 
 reauthd_user
 # => LivilApi::User(arbitrary_id: 'user_xyz123', token: <updated token>)</code></pre>
+      </div>
     
       <%= partial 'partials/guides/next-steps' %>
-      
     </div>
   </section>
 </div>

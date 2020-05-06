@@ -1,6 +1,6 @@
 .secondary-navigation, .tertiary-navigation {
   hr {
-    margin: 1rem 0;
+    margin: 1rem;
   }
   ul {
     list-style-type: none;
@@ -8,6 +8,7 @@
     &> li {
       font-weight: 700;
       font-size: 0.75rem;
+      padding-left: 1rem;
 
       ul {
         margin-top: 0.6rem;
@@ -16,19 +17,28 @@
       &> a, ul li {
         font-weight: 300;
         font-size: 0.85rem;
+        padding-left: 0;
       }
     }
 
     li {
       letter-spacing: 0.05rem;
-      margin-bottom: 0.6rem;
 
       a {
+        position: relative;
+        display: block;
         color: $black;
         text-decoration: none;
+        padding: 0.3rem 0.6rem 0.3rem 1rem;
+        left: -1rem;
+        width: calc(100% + 1rem);
 
-        &.active {
-          color: darken($brand-primary, 10);
+        &.active, &:active {
+          background-color: lighten($brand-primary, 20);
+        }
+
+        &:hover {
+          background-color: lighten($brand-primary, 30);
         }
       }
     }   

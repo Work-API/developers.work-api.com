@@ -17,29 +17,38 @@ next_steps:
 
       <%= partial 'partials/guides/prerequisites' %>
 
-      <h3 class="guide--anchor" id="overview"><a href="#overview">Overview</a></h3> 
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3> 
 
-      <p>An integration contains the access tokens which are issued by the 3rd-party service and allow Work-API to access those servies on behalf of a user.</p>
+        <p>An integration contains the access tokens which are issued by the 3rd-party service and allow Work-API to access those servies on behalf of a user.</p>
+      </div>
 
-      <h3 class="guide--anchor" id="adding-api-credentials"><a href="#adding-api-credentials">Adding API credentials</a></h3>
+      <div id="adding-api-credentials">
+        <h3 class="guide--anchor"><a href="#adding-api-credentials">Adding API credentials</a></h3>
 
-      <p>In order to make requests on behalf of the developer, credentials must be entered via the Dashboard which allow Work-API to identify as the developer when making calls to the underlying APIs.</p>
+        <p>In order to make requests on behalf of the developer, credentials must be entered via the Dashboard which allow Work-API to identify as the developer when making calls to the underlying APIs.</p>
 
-      <p>[TODO: detail the OAuth2 redirect URL and requirement that the work-api URL is added to the 3rd party API OAuth2 setup]</p>
+        <p>[TODO: detail the OAuth2 redirect URL and requirement that the work-api URL is added to the 3rd party API OAuth2 setup]</p>
 
-      <p>[TODO: detail API provider config process and include screengrabs of styled Dashboard]</p>
+        <p>[TODO: detail API provider config process and include screengrabs of styled Dashboard]</p>
+      </div>
 
-      <h3 class="guide--anchor" id="adding-integration"><a href="#adding-integration">Adding an Integration</a></h3>
+      <div id="adding-integration">
+        <h3 class="guide--anchor"><a href="#adding-integration">Adding an Integration</a></h3>
 
-      <p>Once a set of credentials is stored in the WorkAPI database, the user can then connect their accounts to the system.</p> 
+        <p>Once a set of credentials is stored in the WorkAPI database, the user can then connect their accounts to the system.</p> 
+      </div>
 
-      <h4 class="guide--anchor" id="creating-integration-record"><a href="#creating-integration-record">Creating the Integration record</a></h4>
+      <div id="creating-integration-record">
+        <h4 class="guide--anchor"><a href="#creating-integration-record">Creating the Integration record</a></h4>
 
-      <p>The first step is to create an integration via the API.</p>
+        <p>The first step is to create an integration via the API.</p>
+      </div>
 
-      <h5 class="guide--anchor" id="create-integration-record-example"><a href="#create-integration-record-example">Example</a></h5>
+      <div id="create-integration-record-example">
+        <h5 class="guide--anchor"><a href="#create-integration-record-example">Example</a></h5>
 
-      <pre><code class="language-ruby">token = "&lt;user token&gt;"
+        <pre><code class="language-ruby">token = "&lt;user token&gt;"
 client = LivilApi::Service.new(token)
 
 provider = 'gmail'
@@ -50,28 +59,32 @@ created_integration = client.create_integration(integration: integration)
 
 created_integration
 # => LivilApi::Integration(provider: 'gmail', media_type: 'email', ...)</code></pre>
+      </div>
 
-      <h3 class="guide--anchor" id="authorize-integration"><a href="#authorize-integration">Authorizing the Integration using OAuth2</a></h3>
+      <div id="authorize-integration">
+        <h3 class="guide--anchor"><a href="#authorize-integration">Authorizing the Integration using OAuth2</a></h3>
 
-      <p>The user must explicitly grant permission for WorkAPI to access their account on the underlying service.</p>
+        <p>The user must explicitly grant permission for WorkAPI to access their account on the underlying service.</p>
 
-      <p>The standard process to do this is using <a target="_blank" href="https://oauth.net/2/">OAuth2</a>. </p>
+        <p>The standard process to do this is using <a target="_blank" href="https://oauth.net/2/">OAuth2</a>. </p>
 
-      <p>There may be some services which don't support OAuth2 and so the process will be slightly different. That will be covered in documentation for those providers as necessary.</p> 
+        <p>There may be some services which don't support OAuth2 and so the process will be slightly different. That will be covered in documentation for those providers as necessary.</p> 
 
-      <p>The first step of the authorization process is to send the user to a generated URL which allows the user to approve WorkAPI's access and then pass the access tokens back to the WorkAPI.</p>
+        <p>The first step of the authorization process is to send the user to a generated URL which allows the user to approve WorkAPI's access and then pass the access tokens back to the WorkAPI.</p>
 
-      <p>The user should be directed to the URI which is returned by this call. They can optionally be redirected automatically using a 302 redirect on the WorkAPI servers.</p>
+        <p>The user should be directed to the URI which is returned by this call. They can optionally be redirected automatically using a 302 redirect on the WorkAPI servers.</p>
 
-      <p>Once the process is complete, the user is then able to access their data via the WorkAPI.</p>
+        <p>Once the process is complete, the user is then able to access their data via the WorkAPI.</p>
 
-      <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
-        The access and refresh tokens provided by the 3rd party service are not visible to the developer and held only on the WorkAPI servers.
-      <% end %>
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          The access and refresh tokens provided by the 3rd party service are not visible to the developer and held only on the WorkAPI servers.
+        <% end %>
+      </div>
 
-      <h4 class="guide--anchor" id="authorize-example"><a href="#authorize-example">Example</a></h4>
+      <div id="authorize-example">
+        <h4 class="guide--anchor"><a href="#authorize-example">Example</a></h4>
 
-      <pre><code class="language-ruby">token = '&lt;user token&gt;'
+        <pre><code class="language-ruby">token = '&lt;user token&gt;'
 client = LivilApi::Service.new(token)
 
 integration_id = '&lt;ID of previously created integration&gt;' 
@@ -81,6 +94,7 @@ result = client.auth_integration(integration_id: integration_id, return_to: retu
 
 result
 # => { uri: 'https://accounts.google.com/....' }</code></pre>
+      </div>
 
       <%= partial 'partials/guides/next-steps' %>
 
