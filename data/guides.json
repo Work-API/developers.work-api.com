@@ -8,6 +8,9 @@
       "Manage a User": "/guides/manage-user",
       "Create an Integration": "/guides/create-integration"
     },
-    "Object Model": "/guides/object-model" 
+    "Object Model": "/guides/object-model",
+    "Email": {
+      "List Mailboxes": "/guides/email/list-mailboxes" 
+    }
   }
 }

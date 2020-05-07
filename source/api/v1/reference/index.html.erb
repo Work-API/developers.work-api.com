@@ -6,8 +6,31 @@ title: Reference
 <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.28/bundles/redoc.standalone.js"> </script>
 <script charset="utf-8">
   Redoc.init('<%= data.reference.sections[0].schema_url %>', {
-    scrollYOffset: 115,
-    theme: { colors: { primary: { main: '#fe5f55' } } }
+    scrollYOffset: 120,
+    theme: { 
+      spacing: {
+        unit: 5,
+      },
+      colors: { 
+        primary: { 
+          main: '#fe5f55' 
+        } 
+      },
+      typography: {
+        fontFamily: '1em/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+        headings: {
+          fontFamily: '1em/1.5 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontWeight: 100
+        }
+      },
+      sidebar: {
+        textColor: '#191308',
+        activeTextColor: '#191308'
+      },
+      groupItems: {
+        textTransform: 'none'
+      } 
+    }
   })
 </script>
 

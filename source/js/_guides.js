@@ -1,5 +1,6 @@
 function setupTertiaryContents() {
   let $tertiaryNavUl = $('.tertiary-navigation > .navigation-inner--sticky ul.nav-content');
+  if ($tertiaryNavUl.length === 0) return;
 
   $('.guide h3, .guide h4, .guide h5').toArray().forEach(function(elem) {
     let label = elem.innerHTML;
@@ -12,6 +13,9 @@ function setupTertiaryContents() {
 }
 
 function setupTertiaryHighlights() {
+  let $tertiaryNavUl = $('.tertiary-navigation > .navigation-inner--sticky ul.nav-content');
+  if ($tertiaryNavUl.length === 0) return;
+
   new ActiveMenuLink.default('.tertiary-navigation ul', {
     headerHeight: 120,
     scrollOffset: -200,
