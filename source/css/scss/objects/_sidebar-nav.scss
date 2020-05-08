@@ -49,9 +49,12 @@
     top: 128px;
   }
 }
+.secondary-navigation {
+  flex: 0 0 200px;
+}
 
 .tertiary-navigation {
-  min-width: 180px;
+  flex: 0 0 200px;
   margin-top: 88px;
 
   ul li {
