@@ -1,0 +1,168 @@
+---
+layout: guides-layout
+title: Guides | Send Email 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Sending Email</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+
+      <div id="email-model">
+        <h3 class="guide--anchor"><a href="#email-model">Email model</a></h3>
+
+        <p>[Link to API docs: email]</p>
+      </div>
+
+
+      <div id="sending-email">
+        <h3 class="guide--anchor"><a href="#sending-email">Sending an email</a></h3> 
+      </div>
+
+      <div id="simple-email">
+        <h4 class="guide--anchor"><a href="#simple-email">Simple email</a></h4>
+
+        <p>Sending an email via the WorkAPI works in much the same way as sending via any other platform. As with the creation of any item via the WorkAPI, an `integraiton_id` is required.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          The response for this endpoint is 202 Accepted. There is no guarantee that the email will have been sent by the underlying provider, but on receiving a 202 Accepted response, the email is guaranteed to have been submitted by WorkAPI to the underlying provider's API.
+        <% end %>
+      </div>
+
+      <div id="simple-email-example">
+        <h4 class="guide--anchor"><a href="#simple-email-example">Examples</a></h4>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+# using attribute writers 
+email = LivilApi::Email.new
+email.integration_id = 'abc17171923def19098'
+email.subject = 'This is a test email'
+email.to_recpients &lt;&lt; LivilApi::EmailAddress.new(address: 'test@livil.co') 
+email.body = LivilApi::EmailBody.new(plain_text: ['this is a plan text part', 'and another'], html: ['&lt;b&gt;this&lt;/b&gt; is &lt;i&gt;HTML!&lt;/i&gt;'])
+
+# alternatively, using keyword args on initialization 
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is a test email',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['this is a plan text part', 'and another'], 
+    html: ['&lt;b&gt;this&lt;/b&gt; is &lt;i&gt;HTML!&lt;/i&gt;']
+  }
+)
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+
+      <div id="sending-draft">
+        <h3 class="guide--anchor"><a href="#sending-draft">A previously saved draft</a></h3>
+
+        <p>Previously saved drafts can also be sent by simply including the ID of the draft in an otherwise blank email object.</p>
+
+        <p>If additional attributes are included on the email object, the saved draft contents will be entirely replaced on sending.</p>
+      </div>
+
+
+      <div id="sending-draft-example">
+        <h5 class="guide--anchor"><a href="#sending-draft-example">Example</a></h5>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+draft_email_id = 'ABCD....'
+
+email = LivilApi::Email.new(id: draft_email_id)
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      <div id="email-with-attachments">
+        <h3 class="guide--anchor"><a href="#email-with-attachments">Email with attachments (uploaded directly)</a></h3>
+
+        <p>Files can be attached to emails as usual. In this first example, they are transmitted to the Work-API server directly in the email <code>POST</code> request.</p> 
+      </div>
+
+      <div id="email-with-attachments-example">
+        <h4 class="guide--anchor"><a href="#email-with-attachments-example">Examples</a></h4>
+
+        <pre>
+          <code class="language-ruby">my_file = File.open('/path/to/file.txt')
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is an email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      <div id="email-with-remote-attachment">
+        <h3 class="guide--anchor"><a href="#email-with-remote-attachment">Email with attachments (using remote file from a WorkAPI integration)</a></h3>
+
+        <p>Attachments may also come from other sources within the WorkAPI, such as a Google Drive or OneDrive account.</p>
+
+        <p>TODO: Update and test when the file integration is in place</p>
+      </div>
+
+      <div id="email-with-remote-attachment-example">
+        <h4 class="guide--anchor"><a href="#email-with-remote-attachment-example">Examples</a></h4>
+        <pre>
+          <code class="language-ruby">my_file = service.get_file(file_id: 'abcd123') # TODO: confirm syntax
+
+my_file # =&gt; LivilApi::File(remote_id: 'abcd123', integration_id: '12377abcd72f', filename: 'something.doc')
+
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is an email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+    </div>
+  </section>
+</div>

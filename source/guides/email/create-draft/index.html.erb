@@ -1,0 +1,162 @@
+---
+layout: guides-layout
+title: Guides | Create and Update a Draft 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Creating a Draft Email</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+
+      <div id="email-model">
+        <h3 class="guide--anchor"><a href="#email-model">Email model</a></h3>
+
+        <p>[Link to API docs: email]</p>
+      </div>
+
+
+      <div id="create-draft">
+        <h3 class="guide--anchor"><a href="#create-draft">Creating a draft email</a></h3> 
+      </div>
+
+      <div id="simple-email">
+        <h4 class="guide--anchor"><a href="#simple-email">Simple email</a></h4>
+
+        <p>Draft emails are created on the underlying provider and so can be interacted with in the same way on any device or application connected to your accounts. As with all other private data, they are not stored on the WorkAPI platform.</p>
+
+        <p>As with the creation of any item via the WorkAPI, an `integraiton_id` is required.</p>
+      </div>
+
+
+      <div id="simple-email-example">
+        <h5 class=""><a href="#simple-email-example">Examples</a></h5>
+
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is a test draft email',
+  to_recpients: [{ address: 'test@work-api.com' }],
+  body:{ 
+    plain_text: ['this is a plan text part', 'and another'], 
+    html: ['&lt;b&gt;this&lt;/b&gt; is &lt;i&gt;HTML!&lt;/i&gt;']
+  }
+)
+
+response = client.create_draft(email: email)
+
+response
+# =&gt; LivilApi::Email(id: '...', subject: 'This is a test draft email', ...)</code></pre>
+      </div>
+
+
+      <div id="draft-with-attachments">
+        <h3 class="guide--anchor"><a href="#draft-with-attachments">Draft with attachments (uploaded directly)</a></h3>
+      </div>
+
+      <div id="draft-with-attachment-example">
+        <h4 class="guide--anchor"><a href="#draft-with-attachment-example">Examples</a></h4>
+
+        <pre><code class="langauge-ruby">my_file = File.open('/path/to/file.txt')
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is a test draft email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; LivilApi::Email(id: '...', subject: 'This is a test draft email with an attachment', ...)</code></pre>
+      </div>
+
+      <div id="email-with-remote-attachment">
+        <h3 class="guide--anchor"><a href="#email-with-remote-attachment">Email with attachments (using remote file from a WorkAPI integration)</a></h3>
+
+        <p>Attachments may also come from other sources within the WorkAPI, such as a Google Drive or OneDrive account.</p>
+
+        <p>TODO: Update and test when the file integration is in place</p>
+      </div>
+
+
+      <div id="email-with-remote-attachment-example">
+        <h4 class="guide--anchor"><a href="#email-with-remote-attachment-example">Examples</a></h4>
+
+        <pre><code class="language-ruby">my_file = service.get_file(file_id: 'abcd123') # TODO: confirm syntax
+
+my_file # =&gt; LivilApi::File(remote_id: 'abcd123', integration_id: '12377abcd72f', filename: 'something.doc')
+
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is an email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+      
+      <div id="update-draft">
+        <h3 class="guide--anchor"><a href="#update-draft">Updating an existing draft</a></h3>
+
+        <p>The draft update process replaces the original rather than attempting to update it in-place. Any attributes which are left out of the update payload will be `nil` or equivalent on the updated draft. This also applies to attachments.</p>
+      </div>
+
+
+      <div id="update-draft-example">
+        <h4 class="guide--anchor"><a href="#update-draft-example">Examples</a></h4>
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+draft_email_id = 'XYZ...'
+
+email = LivilApi::Email.new(
+  id: draft_email_id,
+  # `integration_id` is not necessary here as it is encoded in the draft ID
+  subject: 'This is an updated test draft email',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['this is a plan text part', 'and another'], 
+    html: ['&lt;b&gt;this&lt;/&gt; is &lt;&gt;HTML!&lt;/i&gt;']
+  }
+)
+
+response = client.update_draft(email_id: draft_email_id, email: email)
+
+response
+# =&gt; LivilApi::Email(id: '...', subject: 'This is an updated test draft email', ...)</code></pre>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,106 @@
+---
+layout: guides-layout
+title: Guides | Modify Event
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+  "calendar/create-event": Create an Event 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Modify Event</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>The modification process is very similar to that of creation.</p>
+      </div>
+
+
+      <div id="event-model">
+        <h3 class="guide--anchor"><a href="#event-model">Event model</a></h3>
+
+        <p>[Link to API docs: event]</p>
+      </div>
+
+      <div id="modify-simple-event">
+        <h3 class="guide--anchor"><a href="#modify-simple-event">Modifying a simple event</a></h3>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          WorkAPI doesn't currently support moving events between providers (it's on the roadmap). This can be accomplished by creating a new event on integration X, and deleting the old one from integration Y.
+        <% end %>
+      </div>
+
+
+      <div id="modify-simple-events-example">
+        <h4 class="guide--anchor"><a href="#modify-simple-events-example">Example</a></h4>
+        
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+event_id = '...existing event ID...'
+
+event = LivilApi::Event.new(
+  # `integration_id` is not necessary as it's encoded in the `event_id`
+  name: 'Test Meeting (Updated)',
+  start_date_time: '2020-02-01T14:45:00',
+  start_timezone: 'America/New_York',
+  end_date_time: '2020-02-01T15:45:00',
+  end_timezone: 'America/New_York',
+  all_day: false
+)
+
+response = client.modify_event(event_id: event_id, event: event)
+
+response
+# =&gt; LivilApi::Event(id: '...', name: 'Test Meeting (Updated)', ...)</code></pre>
+      </div>
+
+
+      <div id="rsvp-external-event">
+        <h4 class="guide--anchor"><a href="#rsvp-external-event">RSVP on external event</a></h4>
+
+        <p>The provider (Google Calendar, O365) will inform meeting attendees of changes to events made by organizers, and inform organizers of RSVP status changes of the attendees.</p>
+
+        <p>In order to change the RSVP status of an attendee (e.g. to accept or decline an event invitation), the `EventAttendee#response_status` attribute can be updated to one of the following values:</p>
+
+        <ul>
+          <li><code>needsAction</code></li>
+          <li><code>accepted</code></li>
+          <li><code>tentative</code></li>
+          <li><code>declined</code></li>
+        </ul>
+      </div>
+
+      <div id="rsvp-external-event-example">
+        <h4 class="guide--anchor"><a href="#rsvp-external-event-example">Example</a></h4> 
+
+        <pre><code>token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+event_id = '...existing event ID...'
+
+event = client.get_event(event_id: event_id)
+
+event.attendees
+# =&lt; [EventAttendee(..., response_status: 'needsAction')]
+
+event.attendees[0].response_status = 'accepted'
+
+response = client.modify_event(event_id: event_id, event: event)
+
+response
+# =&lt; LivilApi::Event(id: '...', attendees: [EventAttendee(..., response_status: 'accepted'), ...)</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

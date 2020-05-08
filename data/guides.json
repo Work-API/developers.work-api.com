@@ -10,7 +10,16 @@
     },
     "Object Model": "/guides/object-model",
     "Email": {
-      "List Mailboxes": "/guides/email/list-mailboxes" 
+      "List Mailboxes": "/guides/email/list-mailboxes", 
+      "List Emails": "/guides/email/list-emails", 
+      "Create and Update a Draft": "/guides/email/create-draft", 
+      "Send an Email": "/guides/email/send-email" 
+    },
+    "Calendar": {
+      "List Calendars": "/guides/calendar/list-calendars",
+      "List Events": "/guides/calendar/list-events",
+      "Create Event": "/guides/calendar/create-event",
+      "Modify Event": "/guides/calendar/modify-event"
     }
   }
 }

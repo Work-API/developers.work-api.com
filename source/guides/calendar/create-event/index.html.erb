@@ -1,0 +1,171 @@
+---
+layout: guides-layout
+title: Guides | Create Event 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Create Event</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+      </div>
+
+      <div id="event-model">
+        <h3 class="guide--anchor"><a href="#event-model">Event model</a></h3>
+
+        <p>[Link to API docs: event]</p>
+      </div>
+
+
+      <div id="simple-event">
+        <h3 class="guide--anchor"><a href="#simple-event">Simple Event</a></h3>
+        
+        <p>A simple event can be set up as follows:</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          By default, a calendar event is created in the default calendar fort he specified integration
+        <% end %>
+      </div>
+
+      <div id="simple-event-example">
+        <h4 class="guide--anchor"><a href="#simple-event-example">Example</a></h4>
+
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+# using attribute writers 
+event = LivilApi::Event.new
+event.integration_id = 'def12gdebac28abgf2'
+event.name = 'Test Meeting'
+event.description = 'Meeting to discuss some important things'
+event.location = 'Suite 200, Scranton Business Park, 1725 Slough Avenue, Scranton, PA'
+event.start_date_time = '2020-02-01T13:45:00'
+event.start_timezone = 'America/New_York'
+event.end_date_time = '2020-02-01T14:45:00'
+event.end_timezone = 'America/New_York'
+event.all_day = false
+
+# alternatively, using keyword args on initialization 
+event = LivilApi::Event.new(
+  integration_id: 'def12gdebac28abgf2',
+  name: 'Test Meeting',
+  description: 'Meeting to discuss some important things',
+  location: 'Suite 200, Scranton Business Park, 1725 Slough Avenue, Scranton, PA',
+  start_date_time: '2020-02-01T13:45:00',
+  start_timezone: 'America/New_York',
+  end_date_time: '2020-02-01T14:45:00',
+  end_timezone: 'America/New_York',
+  all_day: false
+)
+
+response = client.create_event(event: event)
+
+response
+# =&gt; LivilApi::Event(id: '...', name: 'Test Meeting', ...)</code></pre>
+      </div>
+
+
+      <div id="create-in-specific-calendar">
+        <h4 class="guide--anchor"><a href="#create-in-specific-calendar">Creating in a specific calendar</a></h4>
+
+        <p>To specify which calendar the event should belong to, simply include the WorkAPI ID for the calendar in the `calendar_id` field on the `Event` object.</p>
+      </div>
+
+
+      <div id="attendees">
+        <h3 class="guide--anchor"><a href="#attendees">Attendees</a></h3>
+
+        <p>By adding attendees, the underlying provider will notify them of the event via their email addresses and allow them to RSVP.</p>
+      </div>
+
+
+      <div id="attendees-example">
+        <h4 class="guide--anchor"><a href="#attendees-example">Examples</a></h4>
+
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+# using attribute writers 
+event = LivilApi::Event.new
+event.integration_id = 'def12gdebac28abgf2'
+event.name = 'Meet With Team'
+event.start_date_time = '2020-02-01T13:45:00'
+event.start_timezone = 'America/New_York'
+event.end_date_time = '2020-02-01T14:45:00'
+event.end_timezone = 'America/New_York'
+event.attendees &lt;&lt; LivilApi::EventAttendee.new(email_address: 'someone@domain.com', display_name: 'S. Omeone')
+
+# alternatively, using keyword args on initialization 
+event = LivilApi::Event.new(
+  integration_id: 'def12gdebac28abgf2',
+  name: 'Test Meeting',
+  start_date_time: '2020-02-01T13:45:00',
+  start_timezone: 'America/New_York',
+  end_date_time: '2020-02-01T14:45:00',
+  end_timezone: 'America/New_York',
+  attendees: [{ email_address: 'someone@domain.com', display_name: 'S. Omeone' }]
+)
+
+response = client.create_event(event: event)
+
+response
+# =&gt; LivilApi::Event(id: '...', name: 'Test Meeting', attendees: [LivilApi::EventAttendee(email_address: 'someone@domain.com', ...)])</code></pre>
+      </div>
+
+
+      <div id="recurrence">
+        <h3 class="guide--anchor"><a href="#recurrence">Recurrence</a></h3>
+
+        <p>WorkAPI event objects use the <a href="https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html">iCal Recurrence Rule standard</a>.</p> 
+
+        <p>There are <a href="https://github.com/search?q=rfc5545">many libraries available</a> that allow easy construction of these rules.</p>
+
+        <p>The recurrence rule may consist <code>RRULE</code>, <code>RDATE</code>, and <code>EXDATE</code> and should be separated by <code>\n</code>.</p>
+      </div>
+
+      <div id="recurrence-example">
+        <h4 class="guide--anchor"><a href="#recurrence-example">Example</a></h4>
+
+        <pre><code class="language-ruby"># every third day, for ten occasions
+recurrence_rules = 'RRULE:FREQ=DAILY;INTERVAL=3;COUNT=10\nRDATE;VALUE=DATE:20200420'
+
+event = LivilApi::Event.new(
+  integration_id: 'def12gdebac28abgf2',
+  name: 'Test Meeting',
+  start_date_time: '2020-02-01T13:45:00',
+  start_timezone: 'America/New_York',
+  end_date_time: '2020-02-01T14:45:00',
+  end_timezone: 'America/New_York',
+  recurrence: recurrence_rules 
+)
+
+response = client.create_event(event: event)
+
+response
+# =&gt; LivilApi::Event(id: '...', name: 'Test Meeting', recurrence: 'RDATE;VALUE=DATE:20200420\nRRULE:FREQ=DAILY;INTERVAL=3;COUNT=10')</code></pre>
+      </div>
+
+      <div id="ms-365-limitations">
+        <h4 class="guide--anchor"><a href="#ms-365-limitations">MS 365 Calendar limitations</a></h4>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          MS 365 Calendar doesn't currently support (as of April 2020) <code>RDATE</code> and <code>EXDATE</code> or an equivalent. In order to see which occurences are excluded or excluded from a set, retrieve the event instances using the [TBD] endpoint.
+        <% end %>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'warning' }) do %>
+          Attempts to set <code>RDATE</code> or <code>EXDATE</code> on a MS 365 event will return a 400 error.
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>

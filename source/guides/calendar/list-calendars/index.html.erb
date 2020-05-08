@@ -1,0 +1,60 @@
+---
+layout: guides-layout
+title: Guides | List Calendars 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Listing Calendars</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>A calendar integration can consist of multiple distinct calendars.</p> 
+
+        <p>An example Gmail integration consists of a <code>primary</code> calendar (named for the account email address) as well as many additional calendars, such as Public Holidays, Work, Personal, Training Schedule, etc.</p> 
+
+        <p>All events belong to a calendar and contain a reference to it, either when being retrieved or being created.</p>
+      </div>
+
+      <div id="calendar-model">
+        <h3 class="guide--anchor"><a href="#calendar-model">Calendar model</a></h3>
+
+        <p>[Link to API docs: calendar]</p>
+      </div>
+
+      <div id="listing-calendars">
+        <h3 class="guide--anchor"><a href="#listing-calendars">Listing the calendars</a></h3>
+
+        <p>A call to list calendars will, by default, return all calendars for all connected calendar accounts.</p>
+
+        <p>WorkAPI does not attempt to merge calendars together, instead returning each as a separate entity. Requests to list events can then be filtered by one or more calendar IDs as required.</p>
+      </div>
+
+      <div id="list-calendars-example">
+        <h3 class="guide--anchor"><a href="#list-calendars-example">Example</a></h3>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token) 
+
+mailboxes = client.list_calendars
+
+mailboxes
+# =&gt; [LivilApi::Calendar(id: '...', name: 'My Awesome Calendar', description: '...', ...), LivilApi::Calendar(id: '...', name: 'Holidays in United Kingdom', description: '...', ...), ...]</code></pre>
+      </div>
+
+
+      <%= partial 'partials/guides/next-steps' %>
+    </div>
+  </section>
+</div>
