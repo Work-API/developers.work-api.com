@@ -1,6 +1,9 @@
 {
   "secondary_nav": {
-    "Overview": "/guides",
+    "": {
+      "Overview": "/guides",
+      "Why Beta?": "/guides/beta"
+    },
     "Getting Started": {
       "Setup Developer Account": "/guides/create-account",
       "Create an Environment": "/guides/create-environment",

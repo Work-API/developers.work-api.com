@@ -18,6 +18,10 @@ $breakpoint-menu-resize: 640px;
       width: 150px;
       position: relative; top: 4px; 
     }
+    img.beta {
+      position: relative;
+      top: -7px;
+    }
   }
 
   @media (max-width: $breakpoint) {
