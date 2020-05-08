@@ -1,0 +1,157 @@
+---
+layout: guides-layout
+title: Guides | List Calendars 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Listing Calendars</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>An event represents a single entry in a calendar and contains all the usual information such as timing, location, attendance, recurrence etc.</p>
+
+        <p>The sort order for events is oldest-first.</p>
+      </div>
+
+
+      <div id="event-model">
+        <h3 class="guide--anchor"><a href="#event-model">Event model</a></h3>
+
+        <p>[Link to API docs: event]</p>
+      </div>
+
+
+      <div id="listing-events">
+        <h3 class="guide--anchor"><a href="#listing-events">Listing events</a></h3>
+
+        <p>When listing events, if no filters are specified then the system will retrieve only events from the primary/default calendar.</p>
+      </div>
+
+
+      <div id="listing-events-example">
+        <h4 class="guide--anchor"><a href="#listing-events-example">Example</a></h4>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+emails = client.list_events
+
+emails
+# =&gt; [LivilApi::Event(id: '...', name: 'Meeting with the team', ...), ...]</code></pre>
+      </div>
+
+
+      <div id="applying-filters">
+        <h3 class="guide--anchor"><a href="#applying-filters">Applying Filters</a></h3>
+
+        <p>There are a number of filters which may be applied to the request in order to limit the returned results.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          Unless othewise specified below, all filteirng and seraching is performed by the provider APIs. Contents are not scanned by the WorkAPI system.
+        <% end %>
+      </div>
+
+      <div id="standard-parameters">
+        <h4 class="guide--anchor"><a href="#standard-parameters">Standard Parameters</a></h4> 
+
+        <p>The event list endpoint supports the following standard parameters:</p>
+      </div>
+
+
+      <div id="pagination">
+        <h4 class="guide--anchor"><a href="#pagination">Pagination</a></h4>
+
+        <ul>
+          <li><code>limit</code></li>
+        </ul>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          Sorting and ordering is not currently possible.
+          <br><br>
+          For pagination, combine `limit` with the date range filters.
+        <% end %>
+      </div>
+
+
+      <div id="calendar">
+        <h4 class="guide--anchor"><a href="#calendar">Calendar</a></h4>
+
+        <p>The <code>calendar_ids</code> filter allows retrieval of events for one or many specified calendars.</p>
+      </div>
+
+
+      <div id="calendar-filter-example">
+        <h4 class="guide--anchor"><a href="#calendar-filter-example">Example</a></h4>
+
+        <pre><code class="language-ruby">events = client.list_events(calendar_ids: ['ABCDE...'])
+
+events
+# =&gt; [LivilApi::Event(id: '...', ..., calendar: LivilApi::Calendar(id: 'ABCDE...')), ...]</code></pre>
+      </div>
+
+
+      <div id="date-range">
+        <h4 class="guide--anchor"><a href="#date-range">Date range</a></h4>
+
+        <p>The date range filters by the <code>starts_at</code> date and time. Any events that begin between those dates will be included in the result set.</p> 
+      </div>
+
+
+      <div id="date-range-example">
+        <h4 class="guide--anchor"><a href="#date-range-example">Example</a></h4>
+
+        <pre><code class="language-ruby">events = client.list_events(date_from: '2019-10-01T00:00z', date_until: '2019-12-31T00:00z') 
+
+events
+# =&gt; [LivilApi::Event(id: '...', ..., starts_at: '2019-11-01T10:30z')]</code></pre>
+      </div>
+
+
+      <div id="recurring-event-id">
+        <h3 class="guide--anchor"><a href="#recurring-event-id">Reurring Event ID</a></h3>
+
+        <p>If an event is set to recur, all recurrences are retrieved when filtering by <code>recurring_event_id</code>.</p>
+
+        <p>The <code>calendar_ids</code> field should contain a single ID, that of the calendar to which the the recurring event belongs.</p>
+      </div>
+
+      <div id="recurring-event-id-example">
+        <h4 class="guide--anchor"><a href="#recurring-event-id-example">Example</a></h4>
+
+        <pre><code class="langauge-ruby">events = client.list_events(calendar_ids: ['ABCD987...'], recurring_event_id: 'XYZ123...') 
+
+events
+# =&gt; [LivilApi::Event(id: '...', ..., parent_event_id: 'XYZ123...')]</code></pre>
+      </div>
+
+
+      <div id="simple-search-text">
+        <h3 class="guide--anchor"><a href="#simple-search-text">Simple search text</a></h3>
+
+        <p>A keyword search is performed on events in the specified calendars (default: all).</p>
+      </div>
+
+
+      <div id="simple-search-text-example">
+        <h4 class="guide--anchor"><a href="#simple-search-text-example">Example</a></h4>
+
+        <pre> <code class="language-ruby">events = client.list_events(search_text: 'your subscription') 
+
+events
+# =&gt; [LivilApi::Event(id: '...', description: 'Cancel your subscription with XYZ inc.')] </code> </pre>
+      </div>
+    </div>
+  </section>
+</div>

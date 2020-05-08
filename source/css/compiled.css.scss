@@ -6,11 +6,13 @@
 
 @import 'scss/base/main';
 @import 'scss/base/grid';
+@import 'scss/base/flex';
 @import 'scss/base/headings';
 @import 'scss/base/type';
 @import 'scss/base/inline-elements';
 @import 'scss/base/forms';
 @import 'scss/base/lists';
+@import 'scss/base/spacing';
 
 @import 'scss/objects/buttons';
 @import 'scss/objects/logo';
@@ -22,15 +24,17 @@
 @import 'scss/objects/section-counter';
 @import 'scss/objects/fixed-top';
 @import 'scss/objects/section';
+@import 'scss/objects/sidebar-nav';
 
 @import 'scss/pages/landing';
-@import 'scss/pages/product';
+@import 'scss/pages/reference';
 @import 'scss/pages/about';
 @import 'scss/pages/pricing';
 @import 'scss/pages/blog-index';
 @import 'scss/pages/blog-post';
 @import 'scss/pages/logo-usage';
 @import 'scss/pages/terms';
+@import 'scss/pages/guide';
 
 @import 'scss/libs/zoom';
 

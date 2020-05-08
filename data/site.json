@@ -12,9 +12,18 @@
   "tagline": "All your work, less time.",
   "register_btn_long": "First 50,000 requests are free every&nbsp;month",
   "register_btn_short": "Try it free",
+  "free_tier_requests": "50,000",
   "tagline_enterprise": "The Enterprise Browser<br/> that boosts productivity.",
   "contact_enterprise": "Get Started &mdash; Contact us Today",
   "mockup_btn": "Access Mockup",
   "mockup_caveat": "No sign-up required",
-  "logos_tagline": "©%year% Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC."
+  "logos_tagline": "©%year% Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.",
+  "primary_nav": [
+    { "path": "/guides",  "label": "Guides" },
+    { "path": "/api/v1/reference", "label": "Reference" },
+    { "path": "/sdks", "label": "SDKs" },
+    { "path": "/samples", "label": "Samples" },
+    { "path": "https://dashboard.work-api.com", "label": "Dashboard", "target": "_blank" },
+    { "path": "https://dashboard.work-api.com/billing", "label": "Account", "target": "_blank" }
+  ] 
 }

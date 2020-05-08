@@ -1,0 +1,102 @@
+---
+layout: guides-layout
+title: Guides | Object Model 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Object Model</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="item-ids">
+        <h3 class="guide--anchor"><a href="#item-ids">Item IDs</a></h3>
+
+        <p>All items retrieved from underlying providers have a unique ID with which they can be referenced.</p>
+
+        <p>The ID is a compound of the Integration ID and the remote provider's item ID.</p>
+
+        <p>An item's WorkAPI ID can be determined by concatenating them (with a colon as separator) and encoding to a strict Base64 string: <code>&lt;integration_id&gt;:&lt;remote_id&gt;</code>.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          The decoded concatenated ID string may also be right-padded with separators (colons, <code>:</code>) so as to avoid the <code>=</code> character added to the Base64 strings for padding. 
+        <% end %>
+      </div>
+      
+      <div id="extract-remote-id">
+        <h4 class="guide--anchor"><a href="#extract-remote-id">Extracting the remote item ID using the SDK</a></h4>
+
+        <p>This is handled under the hood when using the SDKs.</p>
+
+        <p>The SDKs will enable the developer to call <code>item.integration_id</code> and <code>item.remote_id</code> to retrieve the underlying IDs.</p>
+      </div>
+
+      <div id="extract-remote-id-example">
+        <h5 class="guide--anchor"><a href="#extract-remote-id-example">Example</a></h5>
+
+        <pre><code class="language-ruby">item = LivilApi::Email.new(id: 'aW50ZWdyYXRpb25fMTIzOmVtYWlsX3h5eDo6')
+item.integration_id # => 'integration_123'
+item.remote_id # => 'email_xyz'</code></pre>
+      </div>
+
+      <div id="build-id-sdk">
+        <h4 class="guide--anchor"><a href="#build-id-sdk">Building the WorkAPI ID using the SDK</a></h4>
+
+        <p>Conversely, when setting <code>item.integration_id</code> and <code>item.remote_id</code> manually, the WorkAPI ID is calculated automatically:</p>
+      </div>
+
+      <div id="build-id-sdk-example">
+        <h5 class="guide--anchor"><a href="#build-id-sdk-example">Example</a></h5>
+
+        <pre><code class="language-ruby">item = LivilApi::Email.new(remote_id: 'email_xyz', integration_id: 'integration_123')
+item.id # => 'aW50ZWdyYXRpb25fMTIzOmVtYWlsX3h5eDo6' 
+
+# Note: as mentioned, this is padded to avoid '==' on the base64 string
+#       Without paddding, the Base64 output is 'aW50ZWdyYXRpb25fMTIzOmVtYWlsX3h5eA=='
+#       Both strings will be handled in the same way by the API</code></pre>
+      </div>
+
+      <div id="ids-outside-sdk">
+        <h4 class="guide--anchor"><a href="#ids-outside-sdk">Working with IDs outside of the SDK</a></h4>
+
+        <p>Without using the SDK, the ID can be generated as follows:</p>
+      </div>
+
+      <div id="ids-outside-sdk-example">
+        <h5 class="guide--anchor"><a href="#ids-outside-sdk-example">Example</a></h5>
+
+        <pre><code class="language-ruby">remote_id = 'email_xyz'
+integration_id = 'integration123'
+
+encoded_id = Base64.strict_encode64("#{integration_id}:#{remote_id}")
+encoded_id # => 'aW50ZWdyYXRpb25fMTIzOmVtYWlsX3h5eDo6'</code></pre>
+        <p>And the inverse</p>
+
+      </div>
+
+      <div id="ids-outside-sdk-inverse-example">
+        <h5 class="guide--anchor"><a href="#ids-outside-sdk-inverse-example">Example</a></h5>
+
+        <pre><code class="language-ruby">id = 'aW50ZWdyYXRpb25fMTIzOmVtYWlsX3h5eDo6'
+
+decoded_id = Base64.strict_decode64(id)
+integration_id, remote_id = decoded_id.split(':')
+
+integration_id # => 'integration123'
+remote_id # => 'email_xyz'</code></pre>
+      </div>
+
+      <div id="pagination">
+        <h3 class="guide--anchor"><a href="#pagination">Pagination</a></h3>4
+
+        <p>[ TODO: include info on general pagination ]</p>
+        <p>[ TODO: ensure pagination is universal across all media forms ]</p>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+
+    </div>
+  </section>
+</div>

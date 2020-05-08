@@ -1,0 +1,10 @@
+<% return '' if current_page.data.next_steps.blank? %>
+
+<div id="next-steps" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#next-steps">Next Steps</a></h3>
+  <ul>
+    <% current_page.data.next_steps.each_pair do |key, label| %>
+      <li><a href="/guides/<%= key %>"><%= label %></a></li>        
+    <% end %>
+  </ul>
+</div>

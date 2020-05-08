@@ -23,49 +23,10 @@ twq('track','PageView');
 <!-- End Twitter universal website tag code -->
 
 <header class="header" id="site_header">
-  <div class="header__aside">
-    <h1 class="logo"><a class="logo__inner" href="/"></a></h1>
-
-    <button class="hamburger hamburger--collapse" id="show_hide_nav" type="button"
-        aria-label="Menu" aria-controls="navigation">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-  </div>
-
   <nav class="primary-nav">
-    <a class="primary-nav__link" href="/">Home</a>
-    <% if current_page.data.page_home %>
-<!--
-    <div class="sub-links">
-      <a class="sub-links__link js-scroll-link" id="home_001_link" href="#home_001">001 The Problem</a>
-      <a class="sub-links__link js-scroll-link" id="home_002_link" href="#home_002">002 The Solution</a>
-      <a class="sub-links__link js-scroll-link" id="home_003_link" href="#home_003">003 Try It</a>
-    </div>
--->
-    <% end %>
-
-    <a class="primary-nav__link" href="/product">API Details</a>
-    <div class="sub-links">
-      <a class="sub-links__link" id="api_details_product_overview_link" href="/product">Product Overview</a>
-      <a class="sub-links__link" id="api_details_pricing_link" href="/pricing">Pricing</a>
-      <a class="sub-links__link" id="api_details_documentation_link" href="#">Documentation</a>
-      <a class="sub-links__link" id="api_details_tutorials_link" href="#">Tutorials</a>
-      <a class="sub-links__link" id="api_details_sdks_link" href="#">SDKs</a>
-    </div>
-
-    <a class="primary-nav__link" href="/about">Company</a>
-    <div class="sub-links">
-      <a class="sub-links__link" id="company_about_link" href="/about">About</a>
-      <a class="sub-links__link" id="company_blog_link" href="/blog">Blog</a>
-      <a class="sub-links__link" id="company_contact_link" href="/contact">Contact</a>
-    </div>
-
-    <div>
-      <a class="btn btn--secondary text--heavy" href="<%= data.site.register_path %>">Sign In</a>
-      <a class="btn btn--brand text--heavy" href="<%= data.site.login_path %>">Try it free</a>
-    </div>
+    <% data.site.primary_nav.each do |nav| %>
+      <a <%= %{target="#{nav.target}"} if nav.target %>class="primary-nav__link <%= 'active' if active?(nav.path, level: 1) %>" href="<%= nav.path %>"><%= nav.label %></a>
+    <% end %>      
   </nav>
 </header>
 <!-- /header -->

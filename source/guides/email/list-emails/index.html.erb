@@ -1,0 +1,174 @@
+---
+layout: guides-layout
+title: Guides | List Emails 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Listing Emails</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="email-model">
+        <h3 class="guide--anchor"><a href="#email-model">Email model</a></h3>
+
+        <p>[Link to API docs: email]</p>
+      </div>
+
+      <div id="listing-emails">
+        <h3 class="guide--anchor"><a href="#listing-emails">Listing emails</a></h3>
+
+        <p>Without providing any additional parameters, the email list endpoint will return the latest [TBC] emails across all email accounts.</p>
+      </div>
+
+      <div id="listing-emails-example">
+        <h4 class="guide--anchor"><a href="#listing-emails-example">Example</a></h4>
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+"bu"bku
+emails = client.list_emails
+
+emails
+# => [LivilApi::Email(id: '...', subject: 're: An important message', ...), ...]</code></pre>
+      </div>
+
+
+      <div id="meta">
+        <h4 class="guide--anchor"><a href="#meta">Meta</a></h4>
+
+        <p>Pagination and count information is available in the <code>meta</code> hash.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          The <code>total_results</code> from some providers are estimates, so this number should not be treated 100% accurate.
+        <% end %>
+      </div>
+
+      <div id="meta-example">
+        <h5 class="guide--anchor"><a href="#meta-example">Example</a></h5>
+        <pre>
+          <code class="language-ruby">emails = client.list_emails
+
+emails.meta
+# =&gt; &lt;OpenStruct next_page="abcd23kjasdkfjlasdjf", total_results=34&gt;</code></pre>
+      </div>
+
+
+      <div id="applying-filters">
+        <h3 class="guide--anchor"><a href="#applying-filters">Applying filters</a></h3> 
+
+        <p>There are a number of filters which may be applied to the request in order to limit the returned results.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          Unless othewise specified below, all filtering and searching is performed by the provider APIs. Contents are not scanned by the WorkAPI system.
+        <% end %>
+      </div>
+
+      <div id="standard-parameters">
+        <h4 class="guide--anchor"><a href="#standard-parameters">Standard Parameters</a></h4>
+        
+        <p>The email list endpoint supports the following standard parameters:</p>
+      </div>
+
+      <div id="pagination">
+        <h4 class="guide--anchor"><a href="#pagination">Pagination</a></h4>
+
+        <ul>
+          <li><code>limit</code>: the number of records to return</li>
+        </ul>
+
+        <p></p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          Sorting and ordering is not currently possible.<br>
+          <br>
+          For pagination, combine <code>limit</code> with the date range filters.
+        <% end %>
+      </div>
+
+      <div id="mailbox">
+        <h4 class="guide--anchor"><a href="#mailbox">Mailbox</a></h4>
+
+        <p>The <code>mailbox_id</code> refers to the WorkAPI mailbox ID.</p>
+
+        <p>Any emails that appear in a mailbox with one of the specified <code>mailbox_ids</code> will be included in the result set (subject to pagination).</p>
+
+        <p>Emails may have multiple mailboxes so multiple IDs may be present.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          In Gmail, an email which has been both sent and received by the same account will contains IDs for both the Inbox and Sent mailboxes.
+        <% end %>
+      </div>
+
+      <div id="mailbox-example">
+        <h5 class="guide--anchor"><a href="#mailbox-example">Example</a></h5>
+
+        <pre>
+        <code class="language-ruby">emails = client.list_emails(mailbox_ids: ['ABCDE...']) 
+
+emails
+# =&gt; [LivilApi::Email(id: '...', ..., mailboxes: [LivilApi::Mailbox(id: 'ABCDE...')])]</code></pre>
+      </div>
+
+      <div id="date-range">
+        <h4 class="guide--anchor"><a href="date-range">Date range</a></h4>
+
+        <p>The date range filters by the `received_at` date and time. Any emails that were received between those dates will be included in the result set (subject to pagination).</p> 
+      </div>
+
+      <div id="date-range-example">
+        <h5 class="guide--anchor"><a href="#date-range-example">Example</a></h5>
+
+        <pre>
+          <code class="guide--anchor">emails = client.list_emails(date_from: '2019-10-01T00:00z', date_until: '2019-12-31T00:00z') 
+
+emails
+# =&gt; [LivilApi::Email(id: '...', ..., received_at: '2019-11-01T10:30z')]</code></pre>
+      </div>
+
+      <div id="contact">
+        <h4 class="guide--anchor"><a href="#contact">Contact</a></h4> 
+
+        <p>Specific contact information can be matched against emails in your account by passing a contact object.</p>
+      </div>
+
+
+      <div id="contact-example">
+        <h5 class="guide--anchor"><a href="#contact-example">Example</a></h5>
+
+        <pre>
+          <code class="language-ruby">contact = LivilApi::Contact.new(first_name: 'Dave', last_name: 'Smith')
+contact.email_addresses << LivilApi::ContactEmailAddress.new(address: 'dave.smith@livil.co')
+emails = client.list_emails(contact: contact) 
+
+emails
+# => [LivilApi::Email(id: '...', ..., sender: 'Dave Smith <dave.smith@livil.co>')]</code></pre>
+      </div>
+
+
+      <div id="simple-text-search">
+        <h4 class="guide--anchor"><a href="#simple-text-search">Simple search text</a></h4>
+
+        <p>A keyword search is performed on emails in the specified mailboxes (default: all).</p>
+      </div>
+
+
+      <div id="simple-text-search-example">
+        <h5 class="guide--anchor"><a href="#simple-text-search-example">Example</a></h5>
+
+        <pre><code class="language-ruby">emails = client.list_emails(search_text: 'your subscription') 
+
+emails
+# =&gt; [LivilApi::Email(id: '...', body: [LivilApi::EmailBody(plain_text: '... renew your subscription today...')])]</code></pre>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+    </div>
+  </section>
+</div>

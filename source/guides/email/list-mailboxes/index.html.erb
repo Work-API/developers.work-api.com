@@ -1,0 +1,62 @@
+---
+layout: guides-layout
+title: Guides | List mailboxes 
+prerequisites:
+  create-account: Create a Developer Account 
+  create-environment: Create an Environment
+  create-user: Create a User 
+  create-integration: Create an Integration 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Listing Mailboxes</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>Mailboxes are synonymous with:</p>
+        <ul>
+          <li>labels in Gmail</li>
+          <li>folders in O365</li>
+          <li>mailboxes in IMAP</li>
+        </ul>
+
+        <p>A mailbox is a container for emails (sent, received, drafts) and each account can have many.</p>
+      </div>
+
+      <div id="mailbox-model">
+        <h3 class="guide--anchor"><a href="#mailbox-model">Mailbox model</a></h3>
+
+        [Link to API docs: mailbox]
+      </div>
+
+
+      <div id="listing-mailboxes">
+        <h3 class="guide--anchor"><a href="#listing-mailboxes">Listing the mailboxes</a></h3>
+
+        <p>A call to list mailboxes will, by default, return all mailboxes for all connected email accounts.</p>
+
+        <p>WorkAPI does not attempt to merge mailboxes together, instead returning each as a separate entity. Requests to list emails can then be filtered by one or more mailbox IDs to allow the developer to fetch all mails in all inboxes.</p>
+      </div>
+
+      <div id="listing-mailboxes-example">
+        <h4 class="guide--anchor"><a href="#listing-mailboxes-example">Example</a></h4>
+
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token) 
+
+mailboxes = client.list_mailboxes
+
+mailboxes
+# => [LivilApi::Mailbox(id: '...', name: 'INBOX', unread_count: 100, ...), LivilApi::Mailbox(id: '...', name: 'SENT', unread_count: 0, ...), ...]</code></pre>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+    </div>
+  </section>
+</div>
