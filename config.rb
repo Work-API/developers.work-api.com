@@ -10,10 +10,12 @@ helpers do
     Kramdown::Document.new(input).to_html
   end
 
-  def active?(path)
+  def active?(path, level: nil)
     current_segs = current_page.path.gsub(/index\.html/, '').split('/')
     check_segs = path.split('/').reject(&:blank?)
-    check_segs == current_segs
+
+    return check_segs == current_segs if level.nil?
+    return check_segs.slice(0, level) == current_segs.slice(0, level)
   end
 end
 
