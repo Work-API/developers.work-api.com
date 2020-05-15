@@ -22,8 +22,8 @@
     { "path": "/guides",  "label": "Guides" },
     { "path": "/api/v1/reference", "label": "Reference" },
     { "path": "/sdks", "label": "SDKs" },
-    { "path": "/samples", "label": "Samples" },
-    { "path": "https://dashboard.work-api.com", "label": "Dashboard", "target": "_blank" },
+    { "path": "#", "label": "Samples" },
+    { "path": "https://alpha.work-api.com", "label": "Dashboard", "target": "_blank" },
     { "path": "https://dashboard.work-api.com/billing", "label": "Account", "target": "_blank" }
   ] 
 }
