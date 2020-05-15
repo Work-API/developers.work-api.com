@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Work-API | Guides | Send Email</title>
+  <meta charset="UTF-8">
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="author" content="">
+  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="apple-mobile-web-app-title" content="Work-API">
+  <meta name="application-name" content="Work-API">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  
+  <link href="/css/styles.css" rel="stylesheet" />
+
+  <!-- CookieConsent -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#ffffff",
+        "text": "#3f4045"
+      },
+      "button": {
+        "background": "#FE5F55",
+        "text": "#ffffff"
+      }
+    },
+    "position": "bottom",
+    "content": {
+      "href": "/privacy"
+    }
+  })});
+  </script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/styles/zenburn.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+  <body class="guides guides_email guides_email_send-email guides_email_send-email_index">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80635047-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80635047-4');
+</script>
+
+<header class="header" id="site_header">
+  <nav class="primary-nav">
+      <a class="primary-nav__link active" href="/guides">Guides</a>
+      <a class="primary-nav__link " href="/api/v1/reference">Reference</a>
+      <a class="primary-nav__link " href="/sdks">SDKs</a>
+      <a class="primary-nav__link " href="/samples">Samples</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com">Dashboard</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com/billing">Account</a>
+  </nav>
+</header>
+<!-- /header -->
+
+
+    <div class="fixed-top">
+  <img width="150" class="logo-name" src="/media/img/logo-large.png" />
+  <img width="25" class="beta" src="/media/img/beta.png" />
+  <div class="fixed-cta">
+    <a class="" href="/a/login">Sign In</a>
+    <a class="btn btn--brand" href="/a/register">Try it free</a>
+  </div>
+</div>
+
+    
+    <div class="dflex-row-container guide">
+      <nav class="secondary-navigation dflex--order-1 py-1">
+  <div class="navigation-inner--sticky">
+      <ul>
+        <li>
+            
+            <ul>
+                <li>
+                  <a class="" href="/guides">Overview</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/beta">Why Beta?</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Getting Started
+            <ul>
+                <li>
+                  <a class="" href="/guides/create-account">Setup Developer Account</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-environment">Create an Environment</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-user">Create a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/manage-user">Manage a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-integration">Create an Integration</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            <a class="" href="/guides/object-model">Object Model</a>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Email
+            <ul>
+                <li>
+                  <a class="" href="/guides/email/list-mailboxes">List Mailboxes</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/list-emails">List Emails</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/create-draft">Create and Update a Draft</a>
+                </li>
+                <li>
+                  <a class="active" href="/guides/email/send-email">Send an Email</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Calendar
+            <ul>
+                <li>
+                  <a class="" href="/guides/calendar/list-calendars">List Calendars</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/list-events">List Events</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/create-event">Create Event</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/modify-event">Modify Event</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+  </div>
+</nav>
+
+      <nav class="tertiary-navigation dflex--order-3 p-1">
+  <div class="navigation-inner--sticky">
+    <ul>
+      <li>
+        Contents
+
+        <ul class="nav-content">
+          
+        </ul>
+      </li>
+    </ul>  
+  </div>
+</nav>
+
+
+      <div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Sending Email</h1>
+      <hr />
+
+      
+<div id="prerequisites" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#prerequisites">Prerequisites</a></h3>
+  <p class="mb-1">This guide assumes you've already done the following:</p>
+  <ul>
+      <li><a href="/guides/create-account">Create a Developer Account</a></li> 
+      <li><a href="/guides/create-environment">Create an Environment</a></li> 
+      <li><a href="/guides/create-user">Create a User</a></li> 
+      <li><a href="/guides/create-integration">Create an Integration</a></li> 
+  </ul>
+</div>
+
+
+
+      <div id="email-model">
+        <h3 class="guide--anchor"><a href="#email-model">Email model</a></h3>
+
+        <p>[Link to API docs: email]</p>
+      </div>
+
+
+      <div id="sending-email">
+        <h3 class="guide--anchor"><a href="#sending-email">Sending an email</a></h3> 
+      </div>
+
+      <div id="simple-email">
+        <h4 class="guide--anchor"><a href="#simple-email">Simple email</a></h4>
+
+        <p>Sending an email via the WorkAPI works in much the same way as sending via any other platform. As with the creation of any item via the WorkAPI, an `integraiton_id` is required.</p>
+
+<div class="guide--panel guide--panel--note"> 
+  <p>
+  <strong>NOTE</strong>:<br>
+            The response for this endpoint is 202 Accepted. There is no guarantee that the email will have been sent by the underlying provider, but on receiving a 202 Accepted response, the email is guaranteed to have been submitted by WorkAPI to the underlying provider's API.
+
+  </p>
+</div>
+      </div>
+
+      <div id="simple-email-example">
+        <h4 class="guide--anchor"><a href="#simple-email-example">Examples</a></h4>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+# using attribute writers 
+email = LivilApi::Email.new
+email.integration_id = 'abc17171923def19098'
+email.subject = 'This is a test email'
+email.to_recpients &lt;&lt; LivilApi::EmailAddress.new(address: 'test@livil.co') 
+email.body = LivilApi::EmailBody.new(plain_text: ['this is a plan text part', 'and another'], html: ['&lt;b&gt;this&lt;/b&gt; is &lt;i&gt;HTML!&lt;/i&gt;'])
+
+# alternatively, using keyword args on initialization 
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is a test email',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['this is a plan text part', 'and another'], 
+    html: ['&lt;b&gt;this&lt;/b&gt; is &lt;i&gt;HTML!&lt;/i&gt;']
+  }
+)
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+
+      <div id="sending-draft">
+        <h3 class="guide--anchor"><a href="#sending-draft">A previously saved draft</a></h3>
+
+        <p>Previously saved drafts can also be sent by simply including the ID of the draft in an otherwise blank email object.</p>
+
+        <p>If additional attributes are included on the email object, the saved draft contents will be entirely replaced on sending.</p>
+      </div>
+
+
+      <div id="sending-draft-example">
+        <h5 class="guide--anchor"><a href="#sending-draft-example">Example</a></h5>
+
+        <pre>
+          <code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+draft_email_id = 'ABCD....'
+
+email = LivilApi::Email.new(id: draft_email_id)
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      <div id="email-with-attachments">
+        <h3 class="guide--anchor"><a href="#email-with-attachments">Email with attachments (uploaded directly)</a></h3>
+
+        <p>Files can be attached to emails as usual. In this first example, they are transmitted to the Work-API server directly in the email <code>POST</code> request.</p> 
+      </div>
+
+      <div id="email-with-attachments-example">
+        <h4 class="guide--anchor"><a href="#email-with-attachments-example">Examples</a></h4>
+
+        <pre>
+          <code class="language-ruby">my_file = File.open('/path/to/file.txt')
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is an email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      <div id="email-with-remote-attachment">
+        <h3 class="guide--anchor"><a href="#email-with-remote-attachment">Email with attachments (using remote file from a WorkAPI integration)</a></h3>
+
+        <p>Attachments may also come from other sources within the WorkAPI, such as a Google Drive or OneDrive account.</p>
+
+        <p>TODO: Update and test when the file integration is in place</p>
+      </div>
+
+      <div id="email-with-remote-attachment-example">
+        <h4 class="guide--anchor"><a href="#email-with-remote-attachment-example">Examples</a></h4>
+        <pre>
+          <code class="language-ruby">my_file = service.get_file(file_id: 'abcd123') # TODO: confirm syntax
+
+my_file # =&gt; LivilApi::File(remote_id: 'abcd123', integration_id: '12377abcd72f', filename: 'something.doc')
+
+attachment = LivilApi::EmailAttachment.new 
+attachment.attach('a-file-name.txt', my_file)
+
+email = LivilApi::Email.new(
+  integration_id: 'abc17171923def19098',
+  subject: 'This is an email with an attachment',
+  to_recpients: [{ address: 'test@livil.co' }],
+  body:{ 
+    plain_text: ['the file you requested is attached!'], 
+  },
+  attachments: [attachment]
+)
+
+
+response = client.send_email(email: email)
+
+response
+# =&gt; :accepted</code></pre>
+      </div>
+
+      
+    </div>
+  </section>
+</div>
+
+    </div>
+
+    
+<section class="u-bg--grey-1">
+  <div class="container">
+
+    <div class="row text--center">
+      <h1>First 50,000 requests are free every&nbsp;month</h1>
+    </div>
+
+    <div class="col-6 offset-3 u-text--center">
+      <a class="btn btn--brand btn--large text--heavy" href="/a/register">Try it free</a>
+    </div>
+
+  </div>
+</section>
+<!-- /footer cta -->
+
+
+    
+    <footer class="footer">
+  <div class="container">
+
+    <div class="row u-m--hide footer-nav__personal">
+      <div class="col-8">
+        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
+        <a class="footer-nav__link" href="/security">Security</a>
+        <a class="footer-nav__link" href="/pricing">Pricing</a>
+        <a class="footer-nav__link" href="#">Documentation</a>
+        <a class="footer-nav__link" href="/about">About</a>
+        <a class="footer-nav__link" href="/blog">Blog</a>
+        <a class="footer-nav__link" href="/contact">Contact Us</a>
+      </div>
+
+      <div class="col-4 text--right">
+        <a class="footer-nav__link" href="/a/login">Login</a>
+        <a class="footer-nav__link" href="/a/register">Signup</a>
+      </div>
+    </div>
+
+    <div class="row u-hard--bottom">
+      <div class="col-4">
+        &copy; Work-API 2020
+      </div>
+
+      <div class="col-4 u-text--center">
+        &nbsp;
+      </div>
+
+      <div class="col-4 u-text--right">
+        <a class="footer-nav__link" href="/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="/privacy">Privacy</a>
+        <a class="footer-nav__link" href="/imprint">Imprint</a>
+      </div>
+      <div class="col-12 logos-tagline">
+       ©2020 Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    <script src="/js/all.js"></script>
+
+  </body>
+</html>

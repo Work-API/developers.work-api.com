@@ -1,0 +1,445 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Work-API | Guides | Create a User</title>
+  <meta charset="UTF-8">
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="author" content="">
+  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="apple-mobile-web-app-title" content="Work-API">
+  <meta name="application-name" content="Work-API">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  
+  <link href="/css/styles.css" rel="stylesheet" />
+
+  <!-- CookieConsent -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#ffffff",
+        "text": "#3f4045"
+      },
+      "button": {
+        "background": "#FE5F55",
+        "text": "#ffffff"
+      }
+    },
+    "position": "bottom",
+    "content": {
+      "href": "/privacy"
+    }
+  })});
+  </script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/styles/zenburn.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+  <body class="guides guides_create-user guides_create-user_index">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80635047-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80635047-4');
+</script>
+
+<header class="header" id="site_header">
+  <nav class="primary-nav">
+      <a class="primary-nav__link active" href="/guides">Guides</a>
+      <a class="primary-nav__link " href="/api/v1/reference">Reference</a>
+      <a class="primary-nav__link " href="/sdks">SDKs</a>
+      <a class="primary-nav__link " href="/samples">Samples</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com">Dashboard</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com/billing">Account</a>
+  </nav>
+</header>
+<!-- /header -->
+
+
+    <div class="fixed-top">
+  <img width="150" class="logo-name" src="/media/img/logo-large.png" />
+  <img width="25" class="beta" src="/media/img/beta.png" />
+  <div class="fixed-cta">
+    <a class="" href="/a/login">Sign In</a>
+    <a class="btn btn--brand" href="/a/register">Try it free</a>
+  </div>
+</div>
+
+    
+    <div class="dflex-row-container guide">
+      <nav class="secondary-navigation dflex--order-1 py-1">
+  <div class="navigation-inner--sticky">
+      <ul>
+        <li>
+            
+            <ul>
+                <li>
+                  <a class="" href="/guides">Overview</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/beta">Why Beta?</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Getting Started
+            <ul>
+                <li>
+                  <a class="" href="/guides/create-account">Setup Developer Account</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-environment">Create an Environment</a>
+                </li>
+                <li>
+                  <a class="active" href="/guides/create-user">Create a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/manage-user">Manage a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-integration">Create an Integration</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            <a class="" href="/guides/object-model">Object Model</a>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Email
+            <ul>
+                <li>
+                  <a class="" href="/guides/email/list-mailboxes">List Mailboxes</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/list-emails">List Emails</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/create-draft">Create and Update a Draft</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/send-email">Send an Email</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Calendar
+            <ul>
+                <li>
+                  <a class="" href="/guides/calendar/list-calendars">List Calendars</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/list-events">List Events</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/create-event">Create Event</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/modify-event">Modify Event</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+  </div>
+</nav>
+
+      <nav class="tertiary-navigation dflex--order-3 p-1">
+  <div class="navigation-inner--sticky">
+    <ul>
+      <li>
+        Contents
+
+        <ul class="nav-content">
+          
+        </ul>
+      </li>
+    </ul>  
+  </div>
+</nav>
+
+
+      <div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Creating a User</h1>
+      <hr />
+
+      
+<div id="prerequisites" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#prerequisites">Prerequisites</a></h3>
+  <p class="mb-1">This guide assumes you've already done the following:</p>
+  <ul>
+      <li><a href="/guides/create-account">Create a Developer Account</a></li> 
+      <li><a href="/guides/create-environment">Create an Environment</a></li> 
+  </ul>
+</div>
+
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>In order to create an account, the developer must issue a signed request that verifies a user/application has permission to do so.</p> 
+
+        <p class="mb-1">This does the following: </p> 
+
+        <ul>
+          <li>ensures the user is creating an account via the developer's app/platform</li>
+          <li>provides reasonable assurance that the user's actions on the platform can be tracked for billing purposes</li>
+          <li>reduces the possibility that a malicious user can abuse the system</li>
+        </ul>
+
+        <p></p>
+      </div>
+
+      <div id="user-model">
+        <h3 class="guide--anchor"><a href="#user-model">User model</a></h3> 
+
+        <p>See the reference section for <a href="/api/v1/reference#tag/user_model">User model</a>.</p>
+      </div>
+
+      <div id="create-user">
+        <h3 class="guide--anchor"><a href="#create-user">Creating a User on the new Environment</a></h3>
+
+        <p>The creation of a new user account requires the developer to generate an Account Provider Token (APT). This is a simply a JWT that has been encrypted and signed using the environment's private key.</p>
+
+<div class="guide--panel guide--panel--warning"> 
+  <p>
+  <strong>WARNING</strong>:<br>
+            It is highly recommended that the key not be stored inside any client-side app or code as it can be easily extracted and abused.
+
+  </p>
+</div>
+
+        <p>We recommend that the developer creates the user account via their own backend application rather than creating the Work API user account from the client application. This gives the developer full control over account management and ensures the private key is not exposed.</p>
+      </div>
+
+      <div id="generate-apt">
+        <h4 class="guide--anchor"><a href="#generate-apt">Generating an APT</a></h4>
+
+        <p>If you are making a user creation request via the Ruby SDK, you can skip this section and jump to 'Creating the user'.</p>
+
+        <p>To generate the APT, you use your private key to sign the payload of a JWT.</p>
+      </div>
+
+      <div id="generate-apt-example">
+        <h4 class="guide--anchor"><a href="#generate-apt-example">Example</a></h4>
+
+        <pre> <code class="language-ruby">apt = LivilApi::AptGenerator.generate_apt(
+  environment_guid: '123456-1234-5678-12345679', 
+  path_to_private_key: '/path/to/my-key.pem',
+  arbitrary_id: 'user_xyz123',
+  expiry: 10 # ttl in seconds, optional, default: 60s
+)
+
+apt 
+# => 'eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE1ODQxMTQyNzQsImlhdCI6MTU....' </code></pre>
+
+        <p>The <code>environment_guid</code> can found in the dashboard, <code>path_to_private_key</code> is the location of the <code>.pem</code> file from when you created the environment.</p>
+
+        <p>The <code>arbitrary_id</code> is the identifier by which a user can be located in the Work-API system.</p> 
+      </div>
+
+      <div id="creating-user">
+        <h3 class="guide--anchor"><a href="#creating-user">Creating the user</a></h3> 
+
+        <p>A user must:</p>
+
+        <ul class="mb-2">
+          <li>be assigned an <code>arbitrary_id</code></li>
+          <li>belong to an environment</li>
+          <li>be created using an APT</li>
+        </ul>
+      </div>
+
+      <div id="what-is-arbitrary-id">
+        <h4 class="guide--anchor"><a href="#what-is-arbitrary-id">What is an <code>arbitrary_id</code>?</a></h4>
+
+        <p>An <code>arbitrary_id</code> is a unique field within the envirnoment which is used by the developer to reference the user.</p>
+
+        <p>It can be any arbitrary string of which the developer has an external and persistent copy. For example the user's acconut ID from the developer's database.</p> 
+
+<div class="guide--panel guide--panel--warning"> 
+  <p>
+  <strong>WARNING</strong>:<br>
+            It is recommended that the string be non-identifying information to avoid data traversing the Work-API system being deanonymizable.
+
+  </p>
+</div>
+
+        <p>The Ruby SDK will generate an APT as part of the user creation process.</p>
+      </div>
+
+      <div id="create-user-example">
+        <h4 class="guide--anchor"><a href="#create-user-example">Example</a></h4>
+
+        <pre>
+         <code class="language-ruby">environment_guid = '123456-1234-5678-12345679'
+path_to_private_key = '/path/to/pkey.pem'
+arbitrary_id = 'user_xyz123'
+
+client = LivilApi::Service.new
+user = LivilApi::User.new(environment_guid: environment_guid, arbitrary_id: arbitrary_id)
+created_user = client.create_user(user: user, path_to_private_key: path_to_private_key)
+
+created_user
+# => LivilApi::User(arbitrary_id: 'user_xyz123', token: 'eyJhbGciOiJSUzI1NiJ9...', ... )</code>
+        </pre>
+      </div>
+
+      <h3 class="guide--anchor" ide="refresh-user-token"><a href="#refresh-user-token">Refreshing a user's token</a></h3> 
+
+      <div id="before-expiration">
+        <h4 class="guide--anchor"><a href="#before-expiration">Before expiration</a></h4>
+
+        <p>A user's JWT will expire after (TBD). While it is still valid, the client app can refresh the user token simply be making a request to the <code>/users/me</code> endpoint.</p>
+      </div>
+
+      <div id="before-expiration-example">
+        <h5 class="guide--anchor"><a href="#before-expiration-example">Example</a></h5>
+
+        <pre><code class="language-ruby">token = '&lt;user token&gt;' # stored when creating the user, or when previously refreshing the token
+
+client = LivilApi::Service.new(token)
+current_user = client.get_user
+
+current_user
+# => LivilApi::User(arbitrary_id: 'user_xyz123', token: <updated token>)
+
+# new token should be stored</code></pre>
+      </div>
+
+      <div id="after-expiration">
+        <h4 class="guide--anchor"><a href="#after-expiration">After expiration</a></h4> 
+
+        <p>After expiry, a token must be reissued by the account provider using the APT. The process is very similar to reating a user, with the APT being generated under the hood when using the SDK.</p>
+      </div>
+
+      <div id="after-expiration-example">
+        <h5 class="guide--anchor"><a href="#after-expiration-example">Example</a></h5>
+
+        <pre><code>environment_guid = '123456-1234-5678-12345679' # the GUID of your environment
+path_to_private_key = '/path/to/pkey' # the location of your .pem
+arbitrary_id = 'user_xyz123' # the unique string you use to identifiy your user
+
+client = LivilApi::Service.new
+user = LivilApi::User.new(environment_guid: environment_guid, arbitrary_id: arbitrary_id)
+reauthd_user = client.reauth_user(user: user, path_to_private_key: path_to_private_key)
+
+reauthd_user
+# => LivilApi::User(arbitrary_id: 'user_xyz123', token: <updated token>)</code></pre>
+      </div>
+    
+      
+<div id="next-steps" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#next-steps">Next Steps</a></h3>
+  <ul>
+      <li><a href="/guides/manage-user">Manage a User</a></li>        
+      <li><a href="/guides/create-integration">Create an Integration</a></li>        
+  </ul>
+</div>
+
+    </div>
+  </section>
+</div>
+
+    </div>
+
+    
+<section class="u-bg--grey-1">
+  <div class="container">
+
+    <div class="row text--center">
+      <h1>First 50,000 requests are free every&nbsp;month</h1>
+    </div>
+
+    <div class="col-6 offset-3 u-text--center">
+      <a class="btn btn--brand btn--large text--heavy" href="/a/register">Try it free</a>
+    </div>
+
+  </div>
+</section>
+<!-- /footer cta -->
+
+
+    
+    <footer class="footer">
+  <div class="container">
+
+    <div class="row u-m--hide footer-nav__personal">
+      <div class="col-8">
+        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
+        <a class="footer-nav__link" href="/security">Security</a>
+        <a class="footer-nav__link" href="/pricing">Pricing</a>
+        <a class="footer-nav__link" href="#">Documentation</a>
+        <a class="footer-nav__link" href="/about">About</a>
+        <a class="footer-nav__link" href="/blog">Blog</a>
+        <a class="footer-nav__link" href="/contact">Contact Us</a>
+      </div>
+
+      <div class="col-4 text--right">
+        <a class="footer-nav__link" href="/a/login">Login</a>
+        <a class="footer-nav__link" href="/a/register">Signup</a>
+      </div>
+    </div>
+
+    <div class="row u-hard--bottom">
+      <div class="col-4">
+        &copy; Work-API 2020
+      </div>
+
+      <div class="col-4 u-text--center">
+        &nbsp;
+      </div>
+
+      <div class="col-4 u-text--right">
+        <a class="footer-nav__link" href="/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="/privacy">Privacy</a>
+        <a class="footer-nav__link" href="/imprint">Imprint</a>
+      </div>
+      <div class="col-12 logos-tagline">
+       ©2020 Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    <script src="/js/all.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Work-API | Guides | Create an Integration</title>
+  <meta charset="UTF-8">
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="author" content="">
+  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="apple-mobile-web-app-title" content="Work-API">
+  <meta name="application-name" content="Work-API">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  
+  <link href="/css/styles.css" rel="stylesheet" />
+
+  <!-- CookieConsent -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#ffffff",
+        "text": "#3f4045"
+      },
+      "button": {
+        "background": "#FE5F55",
+        "text": "#ffffff"
+      }
+    },
+    "position": "bottom",
+    "content": {
+      "href": "/privacy"
+    }
+  })});
+  </script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/styles/zenburn.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+  <body class="guides guides_create-integration guides_create-integration_index">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80635047-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80635047-4');
+</script>
+
+<header class="header" id="site_header">
+  <nav class="primary-nav">
+      <a class="primary-nav__link active" href="/guides">Guides</a>
+      <a class="primary-nav__link " href="/api/v1/reference">Reference</a>
+      <a class="primary-nav__link " href="/sdks">SDKs</a>
+      <a class="primary-nav__link " href="/samples">Samples</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com">Dashboard</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com/billing">Account</a>
+  </nav>
+</header>
+<!-- /header -->
+
+
+    <div class="fixed-top">
+  <img width="150" class="logo-name" src="/media/img/logo-large.png" />
+  <img width="25" class="beta" src="/media/img/beta.png" />
+  <div class="fixed-cta">
+    <a class="" href="/a/login">Sign In</a>
+    <a class="btn btn--brand" href="/a/register">Try it free</a>
+  </div>
+</div>
+
+    
+    <div class="dflex-row-container guide">
+      <nav class="secondary-navigation dflex--order-1 py-1">
+  <div class="navigation-inner--sticky">
+      <ul>
+        <li>
+            
+            <ul>
+                <li>
+                  <a class="" href="/guides">Overview</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/beta">Why Beta?</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Getting Started
+            <ul>
+                <li>
+                  <a class="" href="/guides/create-account">Setup Developer Account</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-environment">Create an Environment</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-user">Create a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/manage-user">Manage a User</a>
+                </li>
+                <li>
+                  <a class="active" href="/guides/create-integration">Create an Integration</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            <a class="" href="/guides/object-model">Object Model</a>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Email
+            <ul>
+                <li>
+                  <a class="" href="/guides/email/list-mailboxes">List Mailboxes</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/list-emails">List Emails</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/create-draft">Create and Update a Draft</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/send-email">Send an Email</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Calendar
+            <ul>
+                <li>
+                  <a class="" href="/guides/calendar/list-calendars">List Calendars</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/list-events">List Events</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/create-event">Create Event</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/modify-event">Modify Event</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+  </div>
+</nav>
+
+      <nav class="tertiary-navigation dflex--order-3 p-1">
+  <div class="navigation-inner--sticky">
+    <ul>
+      <li>
+        Contents
+
+        <ul class="nav-content">
+          
+        </ul>
+      </li>
+    </ul>  
+  </div>
+</nav>
+
+
+      <div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Creating an Integration</h1>
+      <hr />
+
+      
+<div id="prerequisites" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#prerequisites">Prerequisites</a></h3>
+  <p class="mb-1">This guide assumes you've already done the following:</p>
+  <ul>
+      <li><a href="/guides/create-account">Create a Developer Account</a></li> 
+      <li><a href="/guides/create-environment">Create an Environment</a></li> 
+      <li><a href="/guides/create-user">Create a User</a></li> 
+  </ul>
+</div>
+
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3> 
+
+        <p>An integration contains the access tokens which are issued by the 3rd-party service and allow Work-API to access those servies on behalf of a user.</p>
+      </div>
+
+      <div id="adding-api-credentials">
+        <h3 class="guide--anchor"><a href="#adding-api-credentials">Adding API credentials</a></h3>
+
+        <p>In order to make requests on behalf of the developer, credentials must be entered via the Dashboard which allow Work-API to identify as the developer when making calls to the underlying APIs.</p>
+
+        <p>[TODO: detail the OAuth2 redirect URL and requirement that the work-api URL is added to the 3rd party API OAuth2 setup]</p>
+
+        <p>[TODO: detail API provider config process and include screengrabs of styled Dashboard]</p>
+      </div>
+
+      <div id="adding-integration">
+        <h3 class="guide--anchor"><a href="#adding-integration">Adding an Integration</a></h3>
+
+        <p>Once a set of credentials is stored in the WorkAPI database, the user can then connect their accounts to the system.</p> 
+      </div>
+
+      <div id="creating-integration-record">
+        <h4 class="guide--anchor"><a href="#creating-integration-record">Creating the Integration record</a></h4>
+
+        <p>The first step is to create an integration via the API.</p>
+      </div>
+
+      <div id="create-integration-record-example">
+        <h5 class="guide--anchor"><a href="#create-integration-record-example">Example</a></h5>
+
+        <pre><code class="language-ruby">token = "&lt;user token&gt;"
+client = LivilApi::Service.new(token)
+
+provider = 'gmail'
+media_type = 'email'
+
+integration = LivilApi::Integration.new(provider: proivder, media_type: media_type)
+created_integration = client.create_integration(integration: integration)
+
+created_integration
+# => LivilApi::Integration(provider: 'gmail', media_type: 'email', ...)</code></pre>
+      </div>
+
+      <div id="authorize-integration">
+        <h3 class="guide--anchor"><a href="#authorize-integration">Authorizing the Integration using OAuth2</a></h3>
+
+        <p>The user must explicitly grant permission for WorkAPI to access their account on the underlying service.</p>
+
+        <p>The standard process to do this is using <a target="_blank" href="https://oauth.net/2/">OAuth2</a>. </p>
+
+        <p>There may be some services which don't support OAuth2 and so the process will be slightly different. That will be covered in documentation for those providers as necessary.</p> 
+
+        <p>The first step of the authorization process is to send the user to a generated URL which allows the user to approve WorkAPI's access and then pass the access tokens back to the WorkAPI.</p>
+
+        <p>The user should be directed to the URI which is returned by this call. They can optionally be redirected automatically using a 302 redirect on the WorkAPI servers.</p>
+
+        <p>Once the process is complete, the user is then able to access their data via the WorkAPI.</p>
+
+<div class="guide--panel guide--panel--note"> 
+  <p>
+  <strong>NOTE</strong>:<br>
+            The access and refresh tokens provided by the 3rd party service are not visible to the developer and held only on the WorkAPI servers.
+
+  </p>
+</div>
+      </div>
+
+      <div id="authorize-example">
+        <h4 class="guide--anchor"><a href="#authorize-example">Example</a></h4>
+
+        <pre><code class="language-ruby">token = '&lt;user token&gt;'
+client = LivilApi::Service.new(token)
+
+integration_id = '&lt;ID of previously created integration&gt;' 
+return_to = 'https://mydomain.com/success' # the URL to which the user should be redirected after successful authorization
+
+result = client.auth_integration(integration_id: integration_id, return_to: return_to)
+
+result
+# => { uri: 'https://accounts.google.com/....' }</code></pre>
+      </div>
+
+      
+
+    </div>
+  </section>
+</div>
+
+    </div>
+
+    
+<section class="u-bg--grey-1">
+  <div class="container">
+
+    <div class="row text--center">
+      <h1>First 50,000 requests are free every&nbsp;month</h1>
+    </div>
+
+    <div class="col-6 offset-3 u-text--center">
+      <a class="btn btn--brand btn--large text--heavy" href="/a/register">Try it free</a>
+    </div>
+
+  </div>
+</section>
+<!-- /footer cta -->
+
+
+    
+    <footer class="footer">
+  <div class="container">
+
+    <div class="row u-m--hide footer-nav__personal">
+      <div class="col-8">
+        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
+        <a class="footer-nav__link" href="/security">Security</a>
+        <a class="footer-nav__link" href="/pricing">Pricing</a>
+        <a class="footer-nav__link" href="#">Documentation</a>
+        <a class="footer-nav__link" href="/about">About</a>
+        <a class="footer-nav__link" href="/blog">Blog</a>
+        <a class="footer-nav__link" href="/contact">Contact Us</a>
+      </div>
+
+      <div class="col-4 text--right">
+        <a class="footer-nav__link" href="/a/login">Login</a>
+        <a class="footer-nav__link" href="/a/register">Signup</a>
+      </div>
+    </div>
+
+    <div class="row u-hard--bottom">
+      <div class="col-4">
+        &copy; Work-API 2020
+      </div>
+
+      <div class="col-4 u-text--center">
+        &nbsp;
+      </div>
+
+      <div class="col-4 u-text--right">
+        <a class="footer-nav__link" href="/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="/privacy">Privacy</a>
+        <a class="footer-nav__link" href="/imprint">Imprint</a>
+      </div>
+      <div class="col-12 logos-tagline">
+       ©2020 Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    <script src="/js/all.js"></script>
+
+  </body>
+</html>

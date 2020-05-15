@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Work-API | Guides | Modify Event</title>
+  <meta charset="UTF-8">
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="author" content="">
+  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="apple-mobile-web-app-title" content="Work-API">
+  <meta name="application-name" content="Work-API">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  
+  <link href="/css/styles.css" rel="stylesheet" />
+
+  <!-- CookieConsent -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#ffffff",
+        "text": "#3f4045"
+      },
+      "button": {
+        "background": "#FE5F55",
+        "text": "#ffffff"
+      }
+    },
+    "position": "bottom",
+    "content": {
+      "href": "/privacy"
+    }
+  })});
+  </script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/styles/zenburn.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+
+  <body class="guides guides_calendar guides_calendar_modify-event guides_calendar_modify-event_index">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80635047-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-80635047-4');
+</script>
+
+<header class="header" id="site_header">
+  <nav class="primary-nav">
+      <a class="primary-nav__link active" href="/guides">Guides</a>
+      <a class="primary-nav__link " href="/api/v1/reference">Reference</a>
+      <a class="primary-nav__link " href="/sdks">SDKs</a>
+      <a class="primary-nav__link " href="/samples">Samples</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com">Dashboard</a>
+      <a target="_blank"class="primary-nav__link " href="https://dashboard.work-api.com/billing">Account</a>
+  </nav>
+</header>
+<!-- /header -->
+
+
+    <div class="fixed-top">
+  <img width="150" class="logo-name" src="/media/img/logo-large.png" />
+  <img width="25" class="beta" src="/media/img/beta.png" />
+  <div class="fixed-cta">
+    <a class="" href="/a/login">Sign In</a>
+    <a class="btn btn--brand" href="/a/register">Try it free</a>
+  </div>
+</div>
+
+    
+    <div class="dflex-row-container guide">
+      <nav class="secondary-navigation dflex--order-1 py-1">
+  <div class="navigation-inner--sticky">
+      <ul>
+        <li>
+            
+            <ul>
+                <li>
+                  <a class="" href="/guides">Overview</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/beta">Why Beta?</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Getting Started
+            <ul>
+                <li>
+                  <a class="" href="/guides/create-account">Setup Developer Account</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-environment">Create an Environment</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-user">Create a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/manage-user">Manage a User</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/create-integration">Create an Integration</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            <a class="" href="/guides/object-model">Object Model</a>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Email
+            <ul>
+                <li>
+                  <a class="" href="/guides/email/list-mailboxes">List Mailboxes</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/list-emails">List Emails</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/create-draft">Create and Update a Draft</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/email/send-email">Send an Email</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+            Calendar
+            <ul>
+                <li>
+                  <a class="" href="/guides/calendar/list-calendars">List Calendars</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/list-events">List Events</a>
+                </li>
+                <li>
+                  <a class="" href="/guides/calendar/create-event">Create Event</a>
+                </li>
+                <li>
+                  <a class="active" href="/guides/calendar/modify-event">Modify Event</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+      <hr>
+  </div>
+</nav>
+
+      <nav class="tertiary-navigation dflex--order-3 p-1">
+  <div class="navigation-inner--sticky">
+    <ul>
+      <li>
+        Contents
+
+        <ul class="nav-content">
+          
+        </ul>
+      </li>
+    </ul>  
+  </div>
+</nav>
+
+
+      <div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Modify Event</h1>
+      <hr />
+
+      
+<div id="prerequisites" class="guide--panel guide--panel--prerequisites">
+  <h3 class="mb-2 guide--anchor"><a href="#prerequisites">Prerequisites</a></h3>
+  <p class="mb-1">This guide assumes you've already done the following:</p>
+  <ul>
+      <li><a href="/guides/create-account">Create a Developer Account</a></li> 
+      <li><a href="/guides/create-environment">Create an Environment</a></li> 
+      <li><a href="/guides/create-user">Create a User</a></li> 
+      <li><a href="/guides/create-integration">Create an Integration</a></li> 
+      <li><a href="/guides/calendar/create-event">Create an Event</a></li> 
+  </ul>
+</div>
+
+
+
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+
+        <p>The modification process is very similar to that of creation.</p>
+      </div>
+
+
+      <div id="event-model">
+        <h3 class="guide--anchor"><a href="#event-model">Event model</a></h3>
+
+        <p>[Link to API docs: event]</p>
+      </div>
+
+      <div id="modify-simple-event">
+        <h3 class="guide--anchor"><a href="#modify-simple-event">Modifying a simple event</a></h3>
+
+<div class="guide--panel guide--panel--note"> 
+  <p>
+  <strong>NOTE</strong>:<br>
+            WorkAPI doesn't currently support moving events between providers (it's on the roadmap). This can be accomplished by creating a new event on integration X, and deleting the old one from integration Y.
+
+  </p>
+</div>
+      </div>
+
+
+      <div id="modify-simple-events-example">
+        <h4 class="guide--anchor"><a href="#modify-simple-events-example">Example</a></h4>
+        
+        <pre><code class="language-ruby">token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+event_id = '...existing event ID...'
+
+event = LivilApi::Event.new(
+  # `integration_id` is not necessary as it's encoded in the `event_id`
+  name: 'Test Meeting (Updated)',
+  start_date_time: '2020-02-01T14:45:00',
+  start_timezone: 'America/New_York',
+  end_date_time: '2020-02-01T15:45:00',
+  end_timezone: 'America/New_York',
+  all_day: false
+)
+
+response = client.modify_event(event_id: event_id, event: event)
+
+response
+# =&gt; LivilApi::Event(id: '...', name: 'Test Meeting (Updated)', ...)</code></pre>
+      </div>
+
+
+      <div id="rsvp-external-event">
+        <h4 class="guide--anchor"><a href="#rsvp-external-event">RSVP on external event</a></h4>
+
+        <p>The provider (Google Calendar, O365) will inform meeting attendees of changes to events made by organizers, and inform organizers of RSVP status changes of the attendees.</p>
+
+        <p>In order to change the RSVP status of an attendee (e.g. to accept or decline an event invitation), the `EventAttendee#response_status` attribute can be updated to one of the following values:</p>
+
+        <ul>
+          <li><code>needsAction</code></li>
+          <li><code>accepted</code></li>
+          <li><code>tentative</code></li>
+          <li><code>declined</code></li>
+        </ul>
+      </div>
+
+      <div id="rsvp-external-event-example">
+        <h4 class="guide--anchor"><a href="#rsvp-external-event-example">Example</a></h4> 
+
+        <pre><code>token = "&lt;user's token&gt;"
+client = LivilApi::Service.new(token)
+
+event_id = '...existing event ID...'
+
+event = client.get_event(event_id: event_id)
+
+event.attendees
+# =&lt; [EventAttendee(..., response_status: 'needsAction')]
+
+event.attendees[0].response_status = 'accepted'
+
+response = client.modify_event(event_id: event_id, event: event)
+
+response
+# =&lt; LivilApi::Event(id: '...', attendees: [EventAttendee(..., response_status: 'accepted'), ...)</code></pre>
+      </div>
+    </div>
+  </section>
+</div>
+
+    </div>
+
+    
+<section class="u-bg--grey-1">
+  <div class="container">
+
+    <div class="row text--center">
+      <h1>First 50,000 requests are free every&nbsp;month</h1>
+    </div>
+
+    <div class="col-6 offset-3 u-text--center">
+      <a class="btn btn--brand btn--large text--heavy" href="/a/register">Try it free</a>
+    </div>
+
+  </div>
+</section>
+<!-- /footer cta -->
+
+
+    
+    <footer class="footer">
+  <div class="container">
+
+    <div class="row u-m--hide footer-nav__personal">
+      <div class="col-8">
+        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
+        <a class="footer-nav__link" href="/security">Security</a>
+        <a class="footer-nav__link" href="/pricing">Pricing</a>
+        <a class="footer-nav__link" href="#">Documentation</a>
+        <a class="footer-nav__link" href="/about">About</a>
+        <a class="footer-nav__link" href="/blog">Blog</a>
+        <a class="footer-nav__link" href="/contact">Contact Us</a>
+      </div>
+
+      <div class="col-4 text--right">
+        <a class="footer-nav__link" href="/a/login">Login</a>
+        <a class="footer-nav__link" href="/a/register">Signup</a>
+      </div>
+    </div>
+
+    <div class="row u-hard--bottom">
+      <div class="col-4">
+        &copy; Work-API 2020
+      </div>
+
+      <div class="col-4 u-text--center">
+        &nbsp;
+      </div>
+
+      <div class="col-4 u-text--right">
+        <a class="footer-nav__link" href="/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="/privacy">Privacy</a>
+        <a class="footer-nav__link" href="/imprint">Imprint</a>
+      </div>
+      <div class="col-12 logos-tagline">
+       ©2020 Google LLC All rights reserved. Gmail, Google Calendar, Google Contacts, Google Drive are trademarks of Google LLC.
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    <script src="/js/all.js"></script>
+
+  </body>
+</html>
