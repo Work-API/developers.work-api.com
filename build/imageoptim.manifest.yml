@@ -54,6 +54,12 @@ build/media/img/icon-compass.png: 2020-05-15 17:59:27.852624867 +02:00
 build/media/img/executive.png: 2020-05-15 17:53:55.265758896 +02:00
 build/media/img/integration-outlook.png: 2020-05-15 17:53:55.265046694 +02:00
 build/media/img/logo-large.png: 2020-05-15 17:59:37.627927810 +02:00
+build/media/img/guides/new-provider.png: 2020-05-18 15:13:32.567004838 +02:00
+build/media/img/guides/subsequent-create.png: 2020-05-18 15:13:27.523929262 +02:00
+build/media/img/guides/initial-create.png: 2020-05-18 15:13:28.256785675 +02:00
+build/media/img/guides/signup.png: 2020-05-18 15:13:54.143795185 +02:00
+build/media/img/guides/provider-created.png: 2020-05-18 15:13:36.294093248 +02:00
+build/media/img/guides/environment-created.png: 2020-05-18 15:13:48.007172302 +02:00
 build/media/img/point-arrow.png: 2020-05-15 17:59:37.165283652 +02:00
 build/media/img/landing-enterprise-manage-access.png: 2020-05-15 18:00:09.353011736
   +02:00

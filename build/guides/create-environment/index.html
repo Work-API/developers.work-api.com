@@ -223,15 +223,31 @@
       <div id="creating-an-environment">
         <h3 class="guide--anchor"><a href="#creating-an-environment">Creating an Envionment</a></h3>
 
-        <p>Once signed up and logged in, and if you don't already see the Environments page already, navigate to the Environments tab and click 'Add'. </p>
+        <p>Once signed up and logged in, you will be presented with the 'Create Environment' screen.</p>
 
-        <p>[SCREENGRAB]</p>
+        <div class="figure">
+  <img src="/media/img/guides/initial-create.png" alt="Initial environment creation" />
+    <span class="caption">Initial environment creation</span>
+</div>
 
-        <p>You are now asked to provide basic identifying and configuration information for the new environment.  </p>
 
-        <p>Once you have filled out the required fields, click 'Create'. </p>
+        <p>Later you can create a new environment by selecting 'Add New Environment...' from the dropdown at the top of the screen. </p>
 
-        <p>[SCREENGRAB]</p>
+        <div class="figure">
+  <img src="/media/img/guides/subsequent-create.png" alt="Subsequent environment creation" />
+    <span class="caption">Subsequent environment creation</span>
+</div>
+
+
+        <p>The initial setup only requires the name of your environment. Provider configuration comes later.</p>
+
+        <p>Once you have given the environment a name, click 'Create Environment'.</p>
+
+        <div class="figure">
+  <img src="/media/img/guides/environment-created.png" alt="Environment created" />
+    <span class="caption">The environment has been created</span>
+</div>
+
 
         <p>We are now presented with a warning. This details the availability of the private Key which grants full access to the environment.  </p>
 
@@ -255,9 +271,36 @@
 
         <p>So we now save this to our local machine, and create backups as necessary. </p>
 
-        <p>The basic environment information is now shown on the screen. </p>
+      </div>
 
-        <p>[SCREENGRAB]</p>
+      <div id="configuring-the-environment">
+        <h3 class="guide--anchor"><a href="#configuring-the-environment">Configuring the Environment</a></h3>
+
+        <p>Work API connects to the underlying APIs on behalf of the developer. In order to to this, credentials must be supplied.</p>
+
+        <p>In this example, we will create a Gmail integration. First click 'Providers' in the sidebar and you are presented with an empty table. Click 'Add Provider'.</p>
+
+        <div class="figure">
+  <img src="/media/img/guides/new-provider.png" alt="New Provider form" />
+    <span class="caption">New Provider form</span>
+</div>
+
+
+<div class="guide--panel guide--panel--note"> 
+  <p>
+  <strong>NOTE</strong>:<br>
+            The 'Client ID' and 'Client Secret' are found in the 3rd party developer site. In the case of Gmail, they can be created in the <a href="https://console.developers.google.com/" target="_blank">Google Developer Console</a> under <strong>Credentials</strong> &gt; <strong>Oauth 2.0 Client IDs</strong>
+
+  </p>
+</div>
+
+        <p>After hitting 'Save', your users will then be able to start adding integrations to their accounts.</p>
+
+        <div class="figure">
+  <img src="/media/img/guides/provider-created.png" alt="Provider list" />
+    <span class="caption">Provider list</span>
+</div>
+
       </div>
 
       
