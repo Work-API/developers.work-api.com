@@ -1,0 +1,19 @@
+.figure {
+  width: 100%;
+  position: relative;
+  padding: 1rem;
+  border: 1px solid $grey-2;
+  background: lighten($grey-1, 5);
+  margin-bottom: 2rem;
+
+  img {
+    border: 1px solid $grey-2, 10;
+    width: 100%;
+  } 
+
+  .caption {
+    font-size: 0.75rem;
+    color: $grey-4;
+  } 
+}
+

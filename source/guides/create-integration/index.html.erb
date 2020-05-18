@@ -26,9 +26,13 @@ prerequisites:
 
         <p>In order to make requests on behalf of the developer, credentials must be entered via the Dashboard which allow Work-API to identify as the developer when making calls to the underlying APIs.</p>
 
-        <p>[TODO: detail the OAuth2 redirect URL and requirement that the work-api URL is added to the 3rd party API OAuth2 setup]</p>
+        <p>When setting up the OAuth credentials on the underlying provider, the Work API OAuth callback URI must be provided as a redirect. Failure to do so will mean users are not able to add integrations.</p>
 
-        <p>[TODO: detail API provider config process and include screengrabs of styled Dashboard]</p>
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          The Work API OAuth2 redirect URI is: <br><code>https://api.work-api.com/auth/callback</code>
+        <% end %>
+
+        <p>For information on adding API credentials to the Work API, see <a href="/guides/create-environment">Create an Environment</a></p>
       </div>
 
       <div id="adding-integration">
