@@ -1,3 +1,5 @@
+$breakpoint: 580px;
+
 .secondary-navigation, .tertiary-navigation {
   hr {
     margin: 1rem;
@@ -48,14 +50,29 @@
     position: sticky;
     top: 128px;
   }
+
+  @media only screen and (max-width: $breakpoint) {
+    .navigation-inner--sticky {
+      position: relative;  
+      top: 0;
+    }
+  }
 }
 .secondary-navigation {
   flex: 0 0 200px;
+
+  @media only screen and (max-width: $breakpoint) {
+    flex: 1;
+  }
 }
 
 .tertiary-navigation {
-  flex: 0 0 200px;
   margin-top: 88px;
+  flex: 0 0 200px;
+
+  @media only screen and (max-width: $breakpoint) {
+    display: none;
+  }
 
   ul li {
     &.level-h3 {}
