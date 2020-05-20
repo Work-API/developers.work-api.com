@@ -3,13 +3,12 @@
 
     <div class="row u-m--hide footer-nav__personal">
       <div class="col-8">
-        <a class="footer-nav__link u-hard--left" href="/product">Product Overview</a>
-        <a class="footer-nav__link" href="/security">Security</a>
-        <a class="footer-nav__link" href="/pricing">Pricing</a>
-        <a class="footer-nav__link" href="#">Documentation</a>
-        <a class="footer-nav__link" href="/about">About</a>
-        <a class="footer-nav__link" href="/blog">Blog</a>
-        <a class="footer-nav__link" href="/contact">Contact Us</a>
+        <a class="footer-nav__link u-hard--left" href="<%= data.site.marketing_url %>/product">Product Overview</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/security">Security</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/pricing">Pricing</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/about">About</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/blog">Blog</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/contact">Contact Us</a>
       </div>
 
       <div class="col-4 text--right">
@@ -28,9 +27,9 @@
       </div>
 
       <div class="col-4 u-text--right">
-        <a class="footer-nav__link" href="/terms">Terms of Service</a>
-        <a class="footer-nav__link" href="/privacy">Privacy</a>
-        <a class="footer-nav__link" href="/imprint">Imprint</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/terms">Terms of Service</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/privacy">Privacy</a>
+        <a class="footer-nav__link" href="<%= data.site.marketing_url %>/imprint">Imprint</a>
       </div>
       <div class="col-12 logos-tagline">
        <%= data.site.logos_tagline.sub('%year%', (Time.now.strftime "%Y")) %>
