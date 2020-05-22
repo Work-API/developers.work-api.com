@@ -20,7 +20,22 @@
     <%= partial "partials/footer" %>
     <%= partial "partials/footer-scripts" %>
     <script charset="utf-8">
-      const ps = new PerfectScrollbar('.secondary-navigation .nav-scroller');
+      let ps;
+
+      function setupNavScroller() {
+        if (document.body.clientWidth <= 580 && ps) {
+          ps.destroy();
+          ps = null;
+        } else if (document.body.clientWidth > 580 && !ps) {
+          ps = new PerfectScrollbar('.secondary-navigation .nav-scroller');
+        }
+      }
+
+      document.addEventListener('resize', function() {
+        setupNavScroller();   
+      });
+
+      setupNavScroller();
     </script>
   </body>
 </html>
