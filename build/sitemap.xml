@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://work-api.com/api/v1/reference</loc>
+    <loc>https://developers.work-api.com/api/v1/reference</loc>
   </url>
   <url>
-    <loc>https://work-api.com/about</loc>
+    <loc>https://developers.work-api.com/about</loc>
   </url>
   <url>
-    <loc>https://work-api.com/contact/thanks</loc>
+    <loc>https://developers.work-api.com/contact/thanks</loc>
   </url>
   <url>
-    <loc>https://work-api.com/contact</loc>
+    <loc>https://developers.work-api.com/contact</loc>
   </url>
   <url>
-    <loc>https://work-api.com/404.html</loc>
+    <loc>https://developers.work-api.com/404.html</loc>
   </url>
   <url>
-    <loc>https://work-api.com/samples</loc>
+    <loc>https://developers.work-api.com/samples</loc>
   </url>
   <url>
-    <loc>https://work-api.com/imprint</loc>
+    <loc>https://developers.work-api.com/imprint</loc>
   </url>
   <url>
-    <loc>https://work-api.com/sdks</loc>
+    <loc>https://developers.work-api.com/sdks</loc>
   </url>
   <url>
-    <loc>https://work-api.com</loc>
+    <loc>https://developers.work-api.com</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/calendar/list-events</loc>
+    <loc>https://developers.work-api.com/guides/calendar/list-events</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/calendar/create-event</loc>
+    <loc>https://developers.work-api.com/guides/calendar/create-event</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/calendar/modify-event</loc>
+    <loc>https://developers.work-api.com/guides/calendar/modify-event</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/calendar/list-calendars</loc>
+    <loc>https://developers.work-api.com/guides/calendar/list-calendars</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/create-integration</loc>
+    <loc>https://developers.work-api.com/guides/create-integration</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/create-user</loc>
+    <loc>https://developers.work-api.com/guides/create-user</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/create-environment</loc>
+    <loc>https://developers.work-api.com/guides/create-environment</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/object-model</loc>
+    <loc>https://developers.work-api.com/guides/object-model</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/email/create-draft</loc>
+    <loc>https://developers.work-api.com/guides/email/create-draft</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/email/list-emails</loc>
+    <loc>https://developers.work-api.com/guides/email/list-emails</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/email/send-email</loc>
+    <loc>https://developers.work-api.com/guides/email/send-email</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/email/list-mailboxes</loc>
+    <loc>https://developers.work-api.com/guides/email/list-mailboxes</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/manage-user</loc>
+    <loc>https://developers.work-api.com/guides/manage-user</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/create-account</loc>
+    <loc>https://developers.work-api.com/guides/create-account</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/webhooks</loc>
+    <loc>https://developers.work-api.com/guides/webhooks</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides</loc>
+    <loc>https://developers.work-api.com/guides</loc>
   </url>
   <url>
-    <loc>https://work-api.com/guides/beta</loc>
+    <loc>https://developers.work-api.com/guides/beta</loc>
   </url>
 </urlset>

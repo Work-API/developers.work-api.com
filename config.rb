@@ -83,7 +83,7 @@ configure :build do
   activate :imageoptim
 
   # Build sitemap
-  activate :sitemap, :hostname => "https://work-api.com"
+  activate :sitemap, :hostname => "https://developers.work-api.com"
 
   # Enable cache buster
   # activate :asset_hash
