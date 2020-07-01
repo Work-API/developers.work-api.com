@@ -15,7 +15,7 @@
   "homepage": "https://github.com/livilco/workapi-marketing-www#readme",
   "dependencies": {
     "active-menu-link": "^1.1.7",
-    "bower": "^1.7.7"
+    "bower": "^1.8.8"
   },
   "devDependencies": {
     "karma": "^0.13.21",
