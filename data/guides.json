@@ -9,9 +9,10 @@
       "Create an Environment": "/guides/create-environment",
       "Create a User": "/guides/create-user",
       "Manage a User": "/guides/manage-user",
-      "Create an Integration": "/guides/create-integration"
+      "Create an Integration": "/guides/create-integration",
+      "Object Model": "/guides/object-model",
+      "Webhooks": "/guides/webhooks"
     },
-    "Object Model": "/guides/object-model",
     "Email": {
       "List Mailboxes": "/guides/email/list-mailboxes", 
       "List Emails": "/guides/email/list-emails", 

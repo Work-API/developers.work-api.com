@@ -1,0 +1,79 @@
+---
+layout: guides-layout
+title: Guides | Webhooks 
+---
+
+<div class="body-content dflex--order-2">
+  <section class="u-bg--grey-1">
+    <div class="container">
+      <h1>Webhooks</h1>
+      <hr />
+
+      <%= partial 'partials/guides/prerequisites' %>
+
+      <div id="overview">
+        <h3 class="guide--anchor"><a href="#overview">Overview</a></h3>
+        <p>Many of the underlying providers notify the Work-API if there are any changes to the contents of an account, for example if a new email arrives.</p>
+        <p>We in turn provide a webhook system to inform subscribed applications of those changes. When receiving those updates, the application can then take appropriate actions, such as updating the display or informing the user of the update.</p>
+      </div>
+
+      <div id="setting-up-a-destination">
+        <h3 class="guide--anchor"><a href="#item-ids">Setting up a webhook destination</a></h3>
+        <p>In the developer accound on the <a href="<%= data.site.dashboard_url %>">Dashboard</a>, navigate to the <strong>Webhooks</strong> page.</p>
+
+        <%= partial 'partials/guides/figure', locals: { src: "/media/img/guides/webhooks-empty.png", alt: 'Webhooks page', caption: 'Webhooks page in a new environment' } %>
+
+        <p>Clicking <strong>Add Webhook Subscription</strong> will display the creation form.</p>
+
+        <%= partial 'partials/guides/figure', locals: { src: "/media/img/guides/webhooks-new.png", alt: 'New webhook form', caption: 'Creating a new webhook subscription' } %>
+
+        <p>Enter the destination URL and click <strong>Save</strong>, then the list of saved webhook subscriptions will be displayed.</p>
+
+        <% partial('partials/guides/info-panel', locals: { type: 'note' }) do %>
+          All webhooks are equal and so receive all notifications. We plan to add scoped webhooks, allowing a webhook subscription to process only a subset of integrations (e.g. only notifications for emails), in the near future.
+        <% end %>
+      </div>
+      
+      <div id="sample-request">
+        <h4 class="guide--anchor"><a href="#sample-request">Sample request</a></h4>
+        
+<pre><code class="lang-http">POST https://your.app/webhook
+Content-Type: application/json; charset=utf-8 
+<span class="json">
+{
+  "data": {
+    "id": "&lt;notification guid&gt;",
+    "type": "notification",
+    "attributes": {
+      "channel_id": "&lt;user arbitrary_id&gt;",
+      "provider": "&lt;e.g. 'gmail'&gt;",
+      "provider_id": "&lt;e.g. 'larry@gmail.com'&gt;"
+    },
+    "relationships": {
+      "changes": [
+        { "id": "&lt;change guid&gt;", "type": "change" },
+        ...
+      ]
+    } 
+  },
+  "included": [
+    { 
+      "id": "&lt;change guid&gt;", 
+      "type": "change",
+      "attributes": {
+        "change_type": "&lt;e.g. creation&gt;",
+        "detail": "&lt;if available&gt;",
+        "resource_id": "&lt;if available&gt;",
+      }
+    },
+    ...
+  ]
+}</span></code></pre>
+      </div>
+
+      <%= partial 'partials/guides/next-steps' %>
+
+    </div>
+  </section>
+</div>
+
