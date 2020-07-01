@@ -49,6 +49,9 @@
     <loc>https://developers.work-api.com/guides/create-environment</loc>
   </url>
   <url>
+    <loc>https://developers.work-api.com/guides/webhook-info</loc>
+  </url>
+  <url>
     <loc>https://developers.work-api.com/guides/object-model</loc>
   </url>
   <url>
@@ -68,9 +71,6 @@
   </url>
   <url>
     <loc>https://developers.work-api.com/guides/create-account</loc>
-  </url>
-  <url>
-    <loc>https://developers.work-api.com/guides/webhooks</loc>
   </url>
   <url>
     <loc>https://developers.work-api.com/guides</loc>

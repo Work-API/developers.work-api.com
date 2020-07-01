@@ -11,7 +11,7 @@
       "Manage a User": "/guides/manage-user",
       "Create an Integration": "/guides/create-integration",
       "Object Model": "/guides/object-model",
-      "Webhooks": "/guides/webhooks"
+      "Webhooks": "/guides/webhook-info"
     },
     "Email": {
       "List Mailboxes": "/guides/email/list-mailboxes", 
