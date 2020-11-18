@@ -304,6 +304,57 @@ result
 # => { uri: 'https://accounts.google.com/....' }</code></pre>
       </div>
 
+      <div id="authorize-via-android">
+        <h3 class="guide--anchor"><a href="#authorize-via-android">Authorizing the Integration on Android</a></h3>
+
+        <p>Google does not allow authorization of integrations via WebView and so a different route must be taken</p>
+
+        <p>A detailed tutorial on integrating Google Sign-In for Android can be found <a href=" https://developers.google.com/identity/sign-in/android/offline-access">here</a>. </p>
+
+        <p>After authorizing the Android app on the device, the <code>serverAuthCode</code> must be passed to the following URL:</p>
+
+        <pre><code class="language-http">POST https://api.work-api.com/auth/authcode/&lt;integration_id&gt;
+
+Authorization: Bearer &lt;token&gt;
+Content-Type: application/x-www-form-urlencoded
+
+code=&lt;code&gt;</code></pre>
+
+<div class="guide--panel guide--panel--note"> 
+  <p>
+  <strong>NOTE</strong>:<br>
+            A sample Android app for connecting your device with Work-API can be found on Github, here: <a href="https://github.com/Work-API/android-oauth-sample">https://github.com/Work-API/android-oauth-sample</a>
+
+  </p>
+</div>
+
+        <p>The correct scopes must be specified for the integrations you wish to add to your application.</p>
+
+        <ul>
+          <li>Gmail:
+            <ul>
+              <li>email</li>
+              <li>https://mail.google.com/</li>
+            </ul>
+          </li>
+
+          <li>Google Calendar:
+            <ul>
+              <li>email</li>
+              <li>https://www.googleapis.com/auth/calendar</li>
+            </ul>
+          </li>
+
+          <li>Google Drive:
+            <ul>
+              <li>email</li>
+              <li>https://www.googleapis.com/auth/drive</li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
       
 
     </div>
