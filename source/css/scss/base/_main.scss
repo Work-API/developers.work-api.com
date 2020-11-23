@@ -10,19 +10,12 @@ html {
   max-width: 100%;
   letter-spacing: 0.1rem;
   font-weight: 300;
-  scroll-padding-top: 112px;
 }
 
 body {
   counter-reset: section;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: 112px;
-
-
-  @media (max-width: $breakpoint) {
-    padding-top: 64px; 
-  }
 }
 
 ::selection {

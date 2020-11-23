@@ -7,12 +7,3 @@
 
   gtag('config', 'UA-80635047-4');
 </script>
-
-<header class="header" id="site_header">
-  <nav class="primary-nav">
-    <% data.site.primary_nav.each do |nav| %>
-      <a <%= %{target="#{nav.target}"} if nav.target %>class="primary-nav__link <%= 'active' if active?(nav.path, level: 1) %>" href="<%= nav.path %>"><%= nav.label %></a>
-    <% end %>      
-  </nav>
-</header>
-<!-- /header -->

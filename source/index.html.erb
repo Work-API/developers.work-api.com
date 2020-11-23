@@ -2,5 +2,5 @@
 title: Home 
 ---
 <script charset="utf-8">
-  document.location = '/guides';
+  document.location = '<%=ENV.fetch("DEVELOPERS_PATH", "")%>/guides';
 </script>

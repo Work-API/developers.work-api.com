@@ -3,23 +3,25 @@
   <%= partial "partials/head" %>
 
   <body class="<%= page_classes %>">
-    <%= partial "partials/header" %>
+    <div class="developers-work-api">
+      <%= partial "partials/header" %>
 
-    <%= partial "partials/fixed-top" %>
-    
-    <div class="dflex-row-container guide">
-      <%= partial('partials/guides/secondary_nav', locals: { items: data.guides.secondary_nav }) %>
-      <%= partial('partials/guides/tertiary_nav') %>
+      <div class="dflex-row-container guide">
+        <%= partial('partials/guides/secondary_nav', locals: { items: data.guides.secondary_nav }) %>
+        <%= partial('partials/guides/tertiary_nav') %>
 
-      <%= yield %>
+        <%= yield %>
+      </div>
+
+      <%= partial 'partials/footer_cta' %>
+
+
+      <%= partial "partials/footer" %>
     </div>
 
-    <%= partial 'partials/footer_cta' %>
-
-    
-    <%= partial "partials/footer" %>
     <%= partial "partials/footer-scripts" %>
     <script charset="utf-8">
+      (function() {
       let ps;
 
       function setupNavScroller() {
@@ -36,6 +38,8 @@
       });
 
       setupNavScroller();
+      })();
     </script>
+
   </body>
 </html>

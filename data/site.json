@@ -22,7 +22,6 @@
   "primary_nav": [
     { "path": "/guides",  "label": "Guides" },
     { "path": "/api/v1/reference", "label": "Reference" },
-    { "path": "/sdks", "label": "SDKs" },
-    { "path": "https://dashboard.work-api.com", "label": "Dashboard", "target": "_blank" }
+    { "path": "/sdks", "label": "SDKs" }
   ] 
 }

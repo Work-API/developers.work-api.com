@@ -69,6 +69,12 @@ set :js_dir, 'js'
 
 set :images_dir, 'media/img'
 
+set :build_dir, '../public/developers'
+
+set :relative_links, true
+
+set :path_prefix, "/developers"
+
 activate :autoprefixer
 
 # Build-specific configuration
@@ -80,10 +86,10 @@ configure :build do
   activate :minify_javascript
 
   # Optimise images on build
-  activate :imageoptim
+  # activate :imageoptim
 
   # Build sitemap
-  activate :sitemap, :hostname => "https://developers.work-api.com"
+  # activate :sitemap, :hostname => "https://developers.work-api.com"
 
   # Enable cache buster
   # activate :asset_hash
