@@ -16,7 +16,7 @@ function setupTertiaryHighlights() {
   let tertiaryNavUl = $('.tertiary-navigation > .navigation-inner--sticky ul.nav-content');
   if (tertiaryNavUl.length === 0) return;
 
-  new ActiveMenuLink.default('.tertiary-navigation ul', {
+  new ActiveMenuLink('.tertiary-navigation ul', {
     headerHeight: 120,
     scrollOffset: -200,
     itemTag: 'li'
