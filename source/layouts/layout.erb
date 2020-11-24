@@ -3,11 +3,12 @@
   <%= partial "partials/head" %>
 
   <body class="<%= page_classes %>">
-    <%= partial "partials/header" %>
+    <div class="developers-work-api">
+      <%= partial "partials/header" %>
 
-    <%= yield %>
-    
-    <%= partial "partials/footer" %>
-    <%= partial "partials/footer-scripts" %>
+      <%= yield %>
+
+      <%= partial "partials/footer-scripts" %>
+    </div>
   </body>
 </html>
