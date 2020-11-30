@@ -2,7 +2,7 @@
   "secondary_nav": {
     "": {
       "Overview": "/guides",
-      "Why Beta?": "/guides/beta"
+      "Why Preview?": "/guides/preview"
     },
     "Getting Started": {
       "Setup Developer Account": "/guides/create-account",
